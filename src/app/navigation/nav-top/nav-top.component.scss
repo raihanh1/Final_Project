@@ -40,12 +40,13 @@
 }
 
 .menu-btn-container {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .menu-btn-container:hover {
@@ -54,7 +55,6 @@
 
 .menu-btn {
     border-radius: 50%;
-    cursor: pointer;
 }
 
 .create-profile-btn {
@@ -66,6 +66,13 @@
 }
 
 @media screen and (min-width: 600px) {
+    .nav-header {
+        padding: 0px 40px;
+    }
+
+    .menu-btn-container {
+        display: none;
+    }
     .menu-btn {
         display: none;
     }
@@ -110,5 +117,12 @@
 
     .login-btn:hover {
         background-color: var(--cobalt);
+    }
+}
+
+
+@media screen and (min-width: 800px) {
+    .nav-header {
+        padding: 0 40px 0 104px;
     }
 }
