@@ -9,7 +9,9 @@ import { WeatherForecastService } from 'src/app/services/weather-forecast.servic
 })
 export class BuoyDetailsComponent implements OnInit {
   weatherForecast;
-  buoyInformation
+  buoyInformation;
+  lon;
+  lat;
 
   constructor(
     private weatherService: WeatherForecastService,
@@ -17,12 +19,15 @@ export class BuoyDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.weatherForecast = this.weatherService.getWeather().subscribe((response:any) => {
-      console.log(response);
+    this.buoyService.getGlos().subscribe((response:any) => {
+      this.buoyInformation = response;
+      console.log(response[0]);
+      this.weatherService.getWeather(response[0].lat, response[0].lon).subscribe((response:any) => {
+        console.log(response);
+        this.weatherForecast = response;
+      });
     });
-    this.buoyInformation = this.buoyService.getGlos().subscribe((response:any) => {
-      console.log(response);
-    })
+
   }
 
 }
