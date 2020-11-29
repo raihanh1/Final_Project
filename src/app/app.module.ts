@@ -12,7 +12,7 @@ import { BuoyDetailsComponent } from './components/buoy-details/buoy-details.com
   declarations: [
     AppComponent,
     NavTopComponent,
-    NavSideComponent
+    NavSideComponent,
     BuoyDetailsComponent
   ],
   imports: [

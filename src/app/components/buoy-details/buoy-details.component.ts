@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlosService } from 'src/app/services/glos.service';
 import { WeatherForecastService } from 'src/app/services/weather-forecast.service';
 
 @Component({
@@ -7,16 +8,21 @@ import { WeatherForecastService } from 'src/app/services/weather-forecast.servic
   styleUrls: ['./buoy-details.component.scss']
 })
 export class BuoyDetailsComponent implements OnInit {
-  weather;
+  weatherForecast;
+  buoyInformation
 
   constructor(
-    private weatherForecast: WeatherForecastService
+    private weatherService: WeatherForecastService,
+    private buoyService: GlosService
   ) { }
 
   ngOnInit(): void {
-    this.weather = this.weatherForecast.getWeather().subscribe((response:any) => {
+    this.weatherForecast = this.weatherService.getWeather().subscribe((response:any) => {
       console.log(response);
     });
+    this.buoyInformation = this.buoyService.getGlos().subscribe((response:any) => {
+      console.log(response);
+    })
   }
 
 }
