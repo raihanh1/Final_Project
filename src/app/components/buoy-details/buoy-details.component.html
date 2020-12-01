@@ -1,1 +1,72 @@
-<p *ngIf='weatherForecast'>temperature: {{ weatherForecast.current.temp }}</p>
+<div class="buoy-page">
+  <div class="map-section"></div>
+  <div class="buoy-header">
+    <div class="weather-widget" *ngIf="weatherForecast">
+      temperature: {{ weatherForecast.current.temp }}
+      <img
+        src="http://openweathermap.org/img/w/{{
+          weatherForecast.current.weather[0].icon
+        }}.png"
+      />
+    </div>
+    <img src="img/icon-favorite-filled.svg" class="icon-favorite-filled" />
+    <h2 class="buoy-title">MACKINAC STRAITS WEST</h2>
+    <p class="buoy-number">(45175)</p>
+    <p class="buoy-update">Last updated: 1:59pm est Mon, Nov. 16, 2020</p>
+  </div>
+  <div class="recreation-container">
+    <h2>These Conditions are Good For</h2>
+    <div class="information-container">
+      <ul>
+        <li>Swimming</li>
+        <li>Fishing</li>
+        <li>Boating</li>
+        <li>Kayaking</li>
+        <li>Paddleboarding</li>
+        <li>Surfing</li>
+        <li>Sailing</li>
+      </ul>
+    </div>
+  </div>
+  <div class="video-container">
+    <div class="information-container">
+      <p>looping video</p>
+    </div>
+  </div>
+  <div class="water-temp-chart-container">
+    <h3>Water Temp</h3>
+    <div class="information-container">
+      <p>Water Temp Chart</p>
+    </div>
+  </div>
+  <div class="currents-chart-container">
+    <h3>Currents</h3>
+    <div class="information-container">
+      <p>Currents Chart</p>
+    </div>
+  </div>
+  <div class="buoy-info-container">
+    <h2>Buoy Info</h2>
+    <div class="rectangle"></div>
+    <p class="buoy-details">
+      The buoy at the Mackinac Straits West buoy station (NDBC Station 45175) is
+      a Total Integrated Data Acquisition Systems (TIDAS) model S2 Yachts-900
+      marine research station equipped with an Acoustic Doppler Current
+      Profiler. The buoy is removed each year during the winter months. As
+      currently configured, the station collects wind direction, wind speed and
+      gust speed, air and water surface temperatures, relative humidity, dew
+      point, barometric pressure, solar radiation, significant wave height,
+      dominant period of waves, wave direction, buoy battery voltage, and the
+      depth and eastward and northward water velocities for each of 28 vertical
+      bins of the water column.
+    </p>
+    <p class="metadata">
+      View metadata for this buoy stored in the Great Lakes Observing System
+      Metadata Catalog
+    </p>
+  </div>
+  <div class="access-details">
+    <p>SMS: Text 45175 toll free to 866-218-9973 for latest observations.</p>
+    <p>GLOS Data Portal: Access more data, models, and create alerts.</p>
+  </div>
+</div>
