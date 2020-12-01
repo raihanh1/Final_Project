@@ -5,12 +5,13 @@ import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { GOOGLE_API_KEY } from './variables.js';
 import { NavTopComponent } from './navigation/nav-top/nav-top.component';
 import { NavSideComponent } from './navigation/nav-side/nav-side.component';
 import { BuoyDetailsComponent } from './components/buoy-details/buoy-details.component';
 import { MapComponent } from './components/map/map.component';
+import { LoginpageComponent } from './loginpage/loginpage.component';
+import { RegisterpageComponent } from './registerpage/registerpage.component';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { MapComponent } from './components/map/map.component';
     NavTopComponent,
     NavSideComponent,
     BuoyDetailsComponent,
-    MapComponent
+    MapComponent,
+    LoginpageComponent,
+    RegisterpageComponent
   ],
   imports: [
     BrowserModule,
