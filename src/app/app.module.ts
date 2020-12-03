@@ -12,6 +12,7 @@ import { BuoyDetailsComponent } from './components/buoy-details/buoy-details.com
 import { MapComponent } from './components/map/map.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegisterpageComponent } from './registerpage/registerpage.component';
+import { RecreationComponent } from './components/recreation/recreation.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { RegisterpageComponent } from './registerpage/registerpage.component';
     BuoyDetailsComponent,
     MapComponent,
     LoginpageComponent,
-    RegisterpageComponent
+    RegisterpageComponent,
+    RecreationComponent
   ],
   imports: [
     BrowserModule,

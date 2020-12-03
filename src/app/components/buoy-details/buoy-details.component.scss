@@ -1,8 +1,21 @@
-.weather-widget {
-    height: 200px;
-    width: 200px;
+.buoy-page {
     margin: auto;
-    background-color: aqua;
+}
+
+.buoy-header {
+  height: 150px;
+  background-color: burlywood;
+  margin: 15px;
+}
+
+.weather-widget {
+   display: flex;
+   background-color: cornsilk;
+   align-items: center;
+}
+
+.weather-item {
+  margin-right: 5px;
 }
 
 .icon-favorite-filled {

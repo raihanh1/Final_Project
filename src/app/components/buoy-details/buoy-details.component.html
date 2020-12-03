@@ -2,30 +2,30 @@
   <div class="map-section"></div>
   <div class="buoy-header">
     <div class="weather-widget" *ngIf="weatherForecast">
-      temperature: {{ weatherForecast.current.temp }}
-      <img
+      <img class="weather-item"
         src="http://openweathermap.org/img/w/{{
           weatherForecast.current.weather[0].icon
         }}.png"
       />
+      <p class="weather-item">{{ weatherForecast.current.temp | number: '1.0-0' }} <span>&#176;</span></p>
+      <p class="weather-item">{{ weatherForecast.current.weather[0].description | titlecase }}</p>
     </div>
     <img src="img/icon-favorite-filled.svg" class="icon-favorite-filled" />
-    <h2 class="buoy-title">MACKINAC STRAITS WEST</h2>
+    <!-- <h2 class="buoy-title">{{ buoyService.longName | uppercase }}</h2> -->
     <p class="buoy-number">(45175)</p>
     <p class="buoy-update">Last updated: 1:59pm est Mon, Nov. 16, 2020</p>
   </div>
   <div class="recreation-container">
-    <h2>These Conditions are Good For</h2>
     <div class="information-container">
-      <ul>
-        <li>Swimming</li>
-        <li>Fishing</li>
-        <li>Boating</li>
-        <li>Kayaking</li>
-        <li>Paddleboarding</li>
-        <li>Surfing</li>
-        <li>Sailing</li>
-      </ul>
+      <h2>These Conditions are Good For</h2>
+      <div>
+        <ul>
+          <li>Swimming</li>
+          <li>Fishing</li>
+          <li>Boating</li>
+          <li>Kayaking</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="video-container">
