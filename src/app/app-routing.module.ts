@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BuoyDetailsComponent } from './components/buoy-details/buoy-details.component';
-import { LoginpageComponent } from './loginpage/loginpage.component';
-import { RegisterpageComponent } from './registerpage/registerpage.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LoginpageComponent } from './pages/loginpage/loginpage.component';
+import { RegisterpageComponent } from './pages/registerpage/registerpage.component';
 
 const routes: Routes = [
-  { path: 'buoy', component: BuoyDetailsComponent },
+  { path: 'buoyportal',
+    component: DashboardComponent,
+    loadChildren: () => import('./pages/dashboard/dashboard-routing.module').then(m => m.DashboardRoutingModule),
+  },
   {
     path: 'login',
     component: LoginpageComponent
@@ -13,6 +16,16 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterpageComponent
+  },
+  {
+    path: '',
+    redirectTo: '/buoyportal',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: '/buoyportal',
+    pathMatch: 'full'
   }
 ];
 

@@ -6,27 +6,42 @@ import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GOOGLE_API_KEY } from './variables.js';
-import { NavTopComponent } from './navigation/nav-top/nav-top.component';
-import { NavSideComponent } from './navigation/nav-side/nav-side.component';
-import { BuoyDetailsComponent } from './components/buoy-details/buoy-details.component';
+import { NavTopComponent } from './components/nav-top/nav-top.component';
+import { BuoyDetailsComponent } from './pages/dashboard/buoy-details/buoy-details.component';
 import { MapComponent } from './components/map/map.component';
-import { LoginpageComponent } from './loginpage/loginpage.component';
-import { RegisterpageComponent } from './registerpage/registerpage.component';
+import { LoginpageComponent } from './pages/loginpage/loginpage.component';
+import { RegisterpageComponent } from './pages/registerpage/registerpage.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DashboardRoutingModule } from './pages/dashboard/dashboard-routing.module';
+import { LakeAllComponent } from './pages/dashboard/lake-all/lake-all.component';
+import { LakeErieComponent } from './pages/dashboard/lake-erie/lake-erie.component';
+import { LakeHuronComponent } from './pages/dashboard/lake-huron/lake-huron.component';
+import { LakeMichiganComponent } from './pages/dashboard/lake-michigan/lake-michigan.component';
+import { LakeOntarioComponent } from './pages/dashboard/lake-ontario/lake-ontario.component';
+import { LakeSuperiorComponent } from './pages/dashboard/lake-superior/lake-superior.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavTopComponent,
-    NavSideComponent,
     BuoyDetailsComponent,
     MapComponent,
     LoginpageComponent,
-    RegisterpageComponent
+    RegisterpageComponent,
+    DashboardComponent,
+    LakeErieComponent,
+    LakeHuronComponent,
+    LakeAllComponent,
+    LakeMichiganComponent,
+    LakeOntarioComponent,
+    LakeSuperiorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    DashboardRoutingModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: GOOGLE_API_KEY
