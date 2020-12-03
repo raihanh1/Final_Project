@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavSideComponent } from './nav-side.component';
+import { LakeHuronComponent } from './lake-huron.component';
 
-describe('NavSideComponent', () => {
-  let component: NavSideComponent;
-  let fixture: ComponentFixture<NavSideComponent>;
+describe('LakeHuronComponent', () => {
+  let component: LakeHuronComponent;
+  let fixture: ComponentFixture<LakeHuronComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavSideComponent ]
+      declarations: [ LakeHuronComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavSideComponent);
+    fixture = TestBed.createComponent(LakeHuronComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
