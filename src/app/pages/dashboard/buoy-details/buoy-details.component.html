@@ -1,34 +1,49 @@
 <div class="buoy-page">
-  <div class="map-section"></div>
-  <div class="buoy-header">
-    <div class="weather-widget" *ngIf="weatherForecast">
-      <img class="weather-item weather-icon"
-        src="http://openweathermap.org/img/w/{{
-            weatherForecast.current.weather[0].icon
-          }}.png"
-      />
-      <p class="weather-item">{{ weatherForecast.current.temp | number: '1.0-0' }}<span>&#176;</span></p>
-      <p class="weather-item">{{ weatherForecast.current.weather[0].description | titlecase }}</p>
+  <div class="buoy-page-top">
+    <div class="map-section"></div>
+    <div class="header-section">
+      <div class="buoy-header">
+        <div class="weather-widget" *ngIf="weatherForecast">
+          <img
+            class="weather-item weather-icon"
+            src="http://openweathermap.org/img/w/{{
+              weatherForecast.current.weather[0].icon
+            }}.png"
+          />
+          <p class="weather-item">
+            {{ weatherForecast.current.temp | number: "1.0-0"
+            }}<span>&#176;</span>
+          </p>
+          <p class="weather-item">
+            {{ weatherForecast.current.weather[0].description | titlecase }}
+          </p>
+        </div>
+        <div class="fav-icon">
+          <img
+            src="../assets/icon-favorite-filled.svg"
+            class="icon-favorite-filled"
+          />
+          <div class="fav-icon-background"></div>
+        </div>
+      </div>
+      <div class="buoy-title-section">
+        <h2 class="buoy-title">{{ currentBuoy.longName | uppercase }}</h2>
+        <p class="buoy-number">({{ currentBuoy.id }})</p>
+      </div>
     </div>
-    <div class="fav-icon">
-        <img src="../assets/icon-favorite-filled.svg" class="icon-favorite-filled" />
-        <div class="fav-icon-background"></div>
-    </div>
-  </div>
-  <div class="buoy-title-section">
-    <h2 class="buoy-title">{{ currentBuoy.longName | uppercase }}</h2>
-    <p class="buoy-number">({{ currentBuoy.id }})</p>
+
     <!-- <p class="buoy-update">Last updated: {{ buoyInformation[0].updateTime }}</p> -->
   </div>
   <div class="recreation-container container">
     <h3 class="container-title">These Conditions are Good For</h3>
-    <div class="information-container">
-        <ul>
-          <li>Swimming</li>
-          <li>Fishing</li>
-          <li>Boating</li>
-          <li>Kayaking</li>
-        </ul>
+    <div class="recreation-items-container information-container">
+      Swimming
+    </div>
+    <div class="recreation-items-container information-container">
+      Kayaking
+    </div>
+    <div class="recreation-items-container information-container">
+      Fishing
     </div>
   </div>
   <div class="video-container container">
@@ -36,7 +51,7 @@
       <p>looping video</p>
     </div>
   </div>
-  <div class="water-temp-chart-container container">
+  <!-- <div class="water-temp-chart-container container">
     <h3 class="container-title">Water Temp</h3>
     <div class="information-container">
       <p>Water Temperature Chart</p>
@@ -47,12 +62,12 @@
     <div class="information-container">
       <p>Currents Chart</p>
     </div>
-  </div>
+  </div> -->
   <div class="buoy-info-container container">
     <h2 class="info-title">Buoy Info</h2>
     <div class="rectangle"></div>
     <p class="buoy-details">{{ currentBuoy.buoyInfo }}</p>
-    <br>
+    <br />
     <p class="metadata">
       View metadata for this buoy stored in the Great Lakes Observing System
       Metadata Catalog
