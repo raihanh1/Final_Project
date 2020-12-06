@@ -34,7 +34,7 @@ const dashboardRoutes: Routes = [
         component: LakeSuperiorComponent,
     },
     {
-        path: 'buoy/:id',
+        path: ':id',
         component: BuoyDetailsComponent,
     },
     {

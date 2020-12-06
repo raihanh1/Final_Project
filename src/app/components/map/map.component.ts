@@ -73,7 +73,7 @@ export class MapComponent implements OnInit {
   }
 
   routeToBuoy(buoy){
-    this.router.navigateByUrl(`/buoy/${buoy.id}`);
+    this.router.navigateByUrl(`/buoyportal/${buoy.id}`);
   }
 
 
