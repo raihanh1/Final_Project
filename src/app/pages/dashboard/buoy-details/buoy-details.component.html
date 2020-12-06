@@ -2,64 +2,57 @@
   <div class="map-section"></div>
   <div class="buoy-header">
     <div class="weather-widget" *ngIf="weatherForecast">
-      <img class="weather-item"
+      <img class="weather-item weather-icon"
         src="http://openweathermap.org/img/w/{{
-          weatherForecast.current.weather[0].icon
-        }}.png"
+            weatherForecast.current.weather[0].icon
+          }}.png"
       />
-      <p class="weather-item">{{ weatherForecast.current.temp | number: '1.0-0' }} <span>&#176;</span></p>
+      <p class="weather-item">{{ weatherForecast.current.temp | number: '1.0-0' }}<span>&#176;</span></p>
       <p class="weather-item">{{ weatherForecast.current.weather[0].description | titlecase }}</p>
     </div>
-    <img src="img/icon-favorite-filled.svg" class="icon-favorite-filled" />
-    <!-- <h2 class="buoy-title">{{ buoyService.longName | uppercase }}</h2> -->
-    <p class="buoy-number">(45175)</p>
-    <p class="buoy-update">Last updated: 1:59pm est Mon, Nov. 16, 2020</p>
+    <div class="fav-icon">
+        <img src="../assets/icon-favorite-filled.svg" class="icon-favorite-filled" />
+        <div class="fav-icon-background"></div>
+    </div>
   </div>
-  <div class="recreation-container">
+  <div class="buoy-title-section">
+    <h2 class="buoy-title">{{ currentBuoy.longName | uppercase }}</h2>
+    <p class="buoy-number">({{ currentBuoy.id }})</p>
+    <!-- <p class="buoy-update">Last updated: {{ buoyInformation[0].updateTime }}</p> -->
+  </div>
+  <div class="recreation-container container">
+    <h3 class="container-title">These Conditions are Good For</h3>
     <div class="information-container">
-      <h2>These Conditions are Good For</h2>
-      <div>
         <ul>
           <li>Swimming</li>
           <li>Fishing</li>
           <li>Boating</li>
           <li>Kayaking</li>
         </ul>
-      </div>
     </div>
   </div>
-  <div class="video-container">
+  <div class="video-container container">
     <div class="information-container">
       <p>looping video</p>
     </div>
   </div>
-  <div class="water-temp-chart-container">
-    <h3>Water Temp</h3>
+  <div class="water-temp-chart-container container">
+    <h3 class="container-title">Water Temp</h3>
     <div class="information-container">
-      <p>Water Temp Chart</p>
+      <p>Water Temperature Chart</p>
     </div>
   </div>
-  <div class="currents-chart-container">
-    <h3>Currents</h3>
+  <div class="currents-chart-container container">
+    <h3 class="container-title">Currents</h3>
     <div class="information-container">
       <p>Currents Chart</p>
     </div>
   </div>
-  <div class="buoy-info-container">
-    <h2>Buoy Info</h2>
+  <div class="buoy-info-container container">
+    <h2 class="info-title">Buoy Info</h2>
     <div class="rectangle"></div>
-    <p class="buoy-details">
-      The buoy at the Mackinac Straits West buoy station (NDBC Station 45175) is
-      a Total Integrated Data Acquisition Systems (TIDAS) model S2 Yachts-900
-      marine research station equipped with an Acoustic Doppler Current
-      Profiler. The buoy is removed each year during the winter months. As
-      currently configured, the station collects wind direction, wind speed and
-      gust speed, air and water surface temperatures, relative humidity, dew
-      point, barometric pressure, solar radiation, significant wave height,
-      dominant period of waves, wave direction, buoy battery voltage, and the
-      depth and eastward and northward water velocities for each of 28 vertical
-      bins of the water column.
-    </p>
+    <p class="buoy-details">{{ currentBuoy.buoyInfo }}</p>
+    <br>
     <p class="metadata">
       View metadata for this buoy stored in the Great Lakes Observing System
       Metadata Catalog

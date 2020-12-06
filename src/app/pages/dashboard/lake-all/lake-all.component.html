@@ -1,1 +1,6 @@
-<app-map></app-map>
+<!-- <app-map></app-map> -->
+<div class="buoy-list">
+    <ol>
+        <li *ngFor="let buoy of buoyInformation; index as i" (click)="goToBuoy(i)">{{ buoy.id }}</li>
+    </ol>
+</div>
