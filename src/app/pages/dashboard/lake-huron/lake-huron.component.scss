@@ -1,0 +1,91 @@
+.buoys {
+    padding: 30px 0px 175px 0px;
+    margin-left: 320px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+    background-color: let(--White);
+  }
+  
+  .buoyid {
+    cursor: pointer;
+    font-family: NotoSans;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: let(--Charcoal);
+  }
+  
+  .lakeTitle {
+    vertical-align: middle;
+    display: inline;
+    width: 201px;
+    height: 22px;
+    margin: 30% 0 1px 10%;
+    font-family: NotoSans;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: let(--Charcoal);
+  }
+  
+  table {
+    float: right;
+    margin-right: 10%;
+  }
+  
+  #title {
+    vertical-align: super;
+  }
+  
+  .about {
+    margin-left: 370px;
+    margin-right: 20px;
+    margin-top: 3%;
+  }
+  
+  .aboutTitle {
+    margin: 0 353px 8px 0;
+    font-family: NotoSans;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: let(--Charcoal);
+  }
+  
+  #mainText {
+    margin: 16px 0 0;
+    font-family: NotoSans;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: let(--Charcoal);
+  }
+  
+  .rectangle {
+    width: 60px;
+    height: 4px;
+    margin: 8px 480px 16px 0;
+    background-color: #3997b5;
+    background-image: linear-gradient(
+      to left,
+      let(#3997b5),
+      let(#2979ff)
+    ) !important;
+  
+    background-image: linear-gradient(
+      to left,
+      let(--turqoise-2),
+      let(--blue-400-2)
+    );
+  }
