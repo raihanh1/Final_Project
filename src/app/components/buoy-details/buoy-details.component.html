@@ -2,11 +2,7 @@
   <div class="map-section"></div>
   <div class="buoy-header">
     <div class="weather-widget" *ngIf="weatherForecast">
-     <!-- temperature: {{ weatherForecast }}-->
-     <p>{{weatherForecast.lat}}</p>
-     <p>{{weatherForecast.lon</p>
-    <p>{{ weatherForecast.current.temp | number: "1.0-0"}}</p>
-
+      temperature: {{ weatherForecast }}
       <img
         src="http://openweathermap.org/img/w/{{
           weatherForecast.current.weather[0].icon
@@ -33,9 +29,9 @@
     </div>
   </div>
   <div class="video-container">
-    <!--<iframe width="486" height="360" src="https://www.youtube.com/embed/ZWLTO9jrMLY?loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+    <iframe width="486" height="360" src="https://www.youtube.com/embed/ZWLTO9jrMLY?loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <div class="information-container">
-      <p>{{currentBuoy.webcamLink[0]}}</p>
+      <p>looping video</p>
     </div>
   </div>
   <div class="water-temp-chart-container">

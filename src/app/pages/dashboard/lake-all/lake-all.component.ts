@@ -46,7 +46,7 @@ export class LakeAllComponent implements OnInit {
   ngOnInit(): void {
     this.buoyService.getGlos().subscribe((response:any) => {
       this.buoyInformation = response;
-      console.log(response);
+      //console.log(response);
     });
 
     
