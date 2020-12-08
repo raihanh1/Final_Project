@@ -18,7 +18,7 @@ export class LakeMichiganComponent implements OnInit {
   }
 
   mapWidth = 1200;
-  mapHeight = 600;
+  mapHeight = 400;
 
   mapOptions: google.maps.MapOptions = {
     center: { lat: 43.9, lng: -86 },

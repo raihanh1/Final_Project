@@ -18,7 +18,7 @@ export class LakeErieComponent implements OnInit {
   }
 
   mapWidth = 1200;
-  mapHeight = 600;
+  mapHeight = 400;
 
   mapOptions: google.maps.MapOptions = {
     center: { lat: 42.25, lng: -81 },
