@@ -1,6 +1,8 @@
 <div class="buoy-page">
   <div class="buoy-page-top">
+
     <div class="map-section"></div>
+
     <div class="header-section">
       <div class="buoy-header">
         <div class="weather-widget" *ngIf="weatherForecast">
@@ -18,14 +20,13 @@
             {{ weatherForecast.current.weather[0].description | titlecase }}
           </p>
         </div>
-        <div class="fav-icon">
-          <img
-            src="../assets/icon-favorite-filled.svg"
-            class="icon-favorite-filled"
-          />
-          <div class="fav-icon-background"></div>
+
+        <div class="fav-button">
+          <img src="../assets/icon-favorite-empty.svg" class="icon-favorite-empty"/>
         </div>
+
       </div>
+
       <div class="buoy-title-section">
         <h2 class="buoy-title">{{ currentBuoy.longName | uppercase }}</h2>
         <p class="buoy-number">({{ currentBuoy.id }})</p>
