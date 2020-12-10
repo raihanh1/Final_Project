@@ -73,7 +73,6 @@ export class MapComponent implements OnInit {
   }
 
   routeToBuoy(buoy){
-    console.log("clicked")
     this.router.navigateByUrl(`/buoyportal/${buoy.id}`);
   }
 
