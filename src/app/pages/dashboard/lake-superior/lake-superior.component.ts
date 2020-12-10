@@ -19,7 +19,7 @@ export class LakeSuperiorComponent implements OnInit {
   }
 
   mapWidth = 1200;
-  mapHeight = 400;
+  mapHeight = 540;
 
   mapOptions: google.maps.MapOptions = {
     center: { lat: 47.25, lng: -87.5 },
