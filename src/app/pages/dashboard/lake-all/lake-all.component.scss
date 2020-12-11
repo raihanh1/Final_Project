@@ -1,0 +1,29 @@
+
+// Bottom Paragraph Section
+.about {
+    margin-top: 40px;
+    margin-left: 48px;
+    margin-bottom: 56px;
+    padding-right: 104px;
+  }
+  
+  .aboutTitle {
+    font-size: 18px;
+    color: var(--Charcoal);
+  }
+  
+  .rectangle {
+    width: 60px;
+    height: 4px;
+    margin: 8px 0 16px 0;
+    background-image: linear-gradient(
+      to left,
+      var(--turquoise),
+      var(--cobalt)
+    );
+  }
+  
+  #mainText {
+    font-size: 14px;
+    color: var(--Charcoal);
+  }

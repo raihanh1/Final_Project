@@ -19,6 +19,7 @@ import { LakeMichiganComponent } from './pages/dashboard/lake-michigan/lake-mich
 import { LakeOntarioComponent } from './pages/dashboard/lake-ontario/lake-ontario.component';
 import { LakeSuperiorComponent } from './pages/dashboard/lake-superior/lake-superior.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { MapKeyComponent } from './components/map-key/map-key.component';
 
 
 
@@ -37,6 +38,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     LakeMichiganComponent,
     LakeOntarioComponent,
     LakeSuperiorComponent,
+    MapKeyComponent,
   ],
   imports: [
     BrowserModule,

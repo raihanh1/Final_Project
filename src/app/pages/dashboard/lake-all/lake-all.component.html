@@ -1,3 +1,5 @@
+<app-map-key></app-map-key>
+
 <app-map
 [mapWidth]="mapWidth"
 [mapHeight]="mapHeight"
@@ -5,20 +7,8 @@
 >
 </app-map>
 
-
-<!-- Favorite Buoy List -->
-
-
-<!-- Buoy of the Day Video -->
-
-
-<!-- About the Buoy Portal -->
-
-
-
-<!-- Leanne testing. Update this. -->
-<!-- <div class="buoy-list">
-    <ol>
-        <li *ngFor="let buoy of buoyInformation; index as i" (click)="goToBuoy(i)">{{ buoy.id }}</li>
-    </ol>
-</div> -->
+<div class="about">
+    <span class="aboutTitle">About the Buoy Portal</span>
+    <div class="rectangle"></div>
+    <p id="mainText">The Great Lakes Observing System’s Great Lakes Buoy Portal provides users with near real-time weather, wave, and water quality conditions observed in the Great Lakes. The portal also allows users to check weather and wave forecasts, and to view hazard information from the National Weather Service. Observations come from both privately- and publicly-owned buoys. Forecasts are from NOAA’s Great Lakes Environmental Research Laboratory’s, the Great Lakes Coastal Forecasting System, and the National Weather Service.</p>
+</div>
