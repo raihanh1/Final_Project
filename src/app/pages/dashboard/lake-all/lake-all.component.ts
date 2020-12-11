@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute,ParamMap } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators'
 import { GlosService } from 'src/app/services/glos.service';
 
@@ -25,7 +25,7 @@ export class LakeAllComponent implements OnInit {
   }
 
   mapWidth = 1200;
-  mapHeight = 600;
+  mapHeight = 540;
   mapOptions: google.maps.MapOptions = {
     center: { lat: 45, lng: -83.50 },
     zoom: 6,
@@ -44,21 +44,23 @@ export class LakeAllComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // Get GLOS API and set to buoyInformation
     this.buoyService.getGlos().subscribe((response:any) => {
       this.buoyInformation = response;
-      //console.log(response);
+      console.log(response);
     });
 
     
-    this.buoy$ = this.route.paramMap.pipe(
-      switchMap(params => {
-        this.selectedId = Number(params.get('id'));
-        return this.buoyService.getGlos();
-      })
-    );
+    // this.buoy$ = this.route.paramMap.pipe(
+    //   switchMap(params => {
+    //     this.selectedId = Number(params.get('id'));
+    //     return this.buoyService.getGlos();
+    //   })
+    // );
   }
 
-  goToBuoy(i) {
-    this.router.navigate([`/buoyportal/buoy/${this.buoyInformation[i].id}`])
-  }
+  // goToBuoy(i) {
+  //   this.router.navigate([`/buoyportal/buoy/${this.buoyInformation[i].id}`])
+  // }
+
 }

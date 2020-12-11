@@ -1,3 +1,5 @@
+<app-map-key></app-map-key>
+
 <app-map
 [mapWidth]="mapWidth"
 [mapHeight]="mapHeight"
@@ -7,13 +9,13 @@
 
 <div class="buoys">
     <div class="lakeTitle">
-        <img src="../../../../assets/icon-buoy.svg">
-        <span id="title">South Central Lake Huron</span>
+        <img id="icon-buoy" src="../../../../assets/icon-buoy.svg">
+        <span id="title"></span>
     </div>
     <table>
-        <tr *ngFor="let cells of rows;">
-            <td *ngFor="let buoy of cells">
-                <span class="buoyid" (mouseenter)=titleChange(buoy.longName)>{{ buoy.id }}</span>
+        <tr *ngFor="let cells of rows" class="table-rows">
+            <td *ngFor="let buoy of cells" (mouseenter)=titleChange(buoy.longName) class="table-cells">
+                <span class="buoyid">{{ buoy.id }}</span>
             </td>
         </tr>
     </table>

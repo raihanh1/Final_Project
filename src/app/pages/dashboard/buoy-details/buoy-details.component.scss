@@ -1,30 +1,32 @@
 .buoy-page {
-  margin: auto;
+  // margin: auto;
   color: var(--charcoal);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // width: 100vw;
 }
 
 .map-section {
-  width: 100vw;
+  width: 144px;
   height: 144px;
-  background-color: darkslateblue;
+  background-image: linear-gradient(
+    to left,
+    var(--turquoise),
+    var(--cobalt)
+  );
 }
 
 .header-section {
-  width: 80%;
-  margin: auto;
+  
 }
 
 .buoy-header {
-  height: 30px;
-  margin-top: 16px;
+  // height: 30px;
+  // margin-top: 16px;
   display: flex;
-  flex-direction: row;
+  // flex-direction: row;
   align-items: center;
-  font-size: 12px;
   justify-content: space-between;
 }
 
@@ -35,50 +37,38 @@
 
 .weather-icon {
   height: 24px;
-  margin: 0 8px 0 0;
+  margin-right: 8px;
 }
 
 .weather-item {
-  margin-right: 5px;
+  margin-right: 4px;
+  font-size: 16px;
 }
 
-.fav-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.icon-favorite-filled {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-  position: absolute;
-  z-index: 1;
-  filter: invert(84%) sepia(100%) saturate(2%) hue-rotate(87deg)
-    brightness(112%) contrast(101%);
-}
-
-.fav-icon-background {
+.fav-button {
   width: 56px;
   height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border-radius: 16px;
-  background-color: var(--dark-blue);
-  position: relative;
-  top: 0;
-  left: 0;
+  border: solid 1.5px var(--dark-blue);
+  background-color: var(--white);
+
+  cursor: pointer;
 }
 
-.buoy-title-section {
-  margin-bottom: 50px;
-  width: 80%;
+.icon-favorite-empty {
+  width: 16px;
+  height: 16px;
+  filter: invert(32%) sepia(65%) saturate(612%) hue-rotate(183deg) brightness(83%) contrast(83%);
 }
 
 .buoy-title {
   font-size: 20px;
   letter-spacing: 2px;
-  width: 288px;
-  height: 27px;
-
 }
 
 .buoy-number {
@@ -94,11 +84,9 @@
 }
 
 .container {
-  width: 80%;
+  // width: 80%;
   margin: 20px 16px 20px 16px;
 }
-
-
 
 .information-container {
   
@@ -140,6 +128,11 @@
   font-size: 12px;
   text-align: center;
 }
+
+a {
+  color: var(--charcoal);
+}
+
 @media screen and (min-width: 768px){
   .buoy-page {
     display: inline;
@@ -193,7 +186,7 @@
   }
 
   .recreation-items-container {
-    height: 64px;
+    height: 48px;
   }
   
   .access-details {

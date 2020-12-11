@@ -11,20 +11,20 @@ export class LakeMichiganComponent implements OnInit {
   allLakeBounds: google.maps.MapRestriction = {
     latLngBounds: {
       north: 46.5,
-      south: 40,
+      south: 41,
       west: -89,
       east: -84,
     }
   }
 
   mapWidth = 1200;
-  mapHeight = 400;
+  mapHeight = 540;
 
   mapOptions: google.maps.MapOptions = {
     center: { lat: 43.9, lng: -86 },
-    zoom: 7,
+    zoom: 6,
     maxZoom: 13,
-    minZoom: 7,
+    minZoom: 6,
     restriction: this.allLakeBounds,
     mapTypeId: 'hybrid',
     disableDefaultUI: true,

@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GOOGLE_API_KEY } from './variables.js';
+// import { GOOGLE_API_KEY } from './variables.js';
 import { NavTopComponent } from './components/nav-top/nav-top.component';
 import { BuoyDetailsComponent } from './pages/dashboard/buoy-details/buoy-details.component';
 import { MapComponent } from './components/map/map.component';
@@ -20,6 +20,7 @@ import { LakeOntarioComponent } from './pages/dashboard/lake-ontario/lake-ontari
 import { LakeSuperiorComponent } from './pages/dashboard/lake-superior/lake-superior.component';
 import { FavoritepageComponent} from './favoritepage/favoritepage.component'
 import { GoogleMapsModule } from '@angular/google-maps';
+import { MapKeyComponent } from './components/map-key/map-key.component';
 
 
 
@@ -40,6 +41,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     LakeOntarioComponent,
     LakeSuperiorComponent,
     FavoritepageComponent,
+    MapKeyComponent,
   ],
   imports: [
     BrowserModule,

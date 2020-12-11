@@ -18,7 +18,7 @@ export class LakeHuronComponent implements OnInit {
   }
 
   mapWidth = 1200;
-  mapHeight = 400;
+  mapHeight = 540;
 
   mapOptions: google.maps.MapOptions = {
     center: { lat: 44.75, lng: -82 },
