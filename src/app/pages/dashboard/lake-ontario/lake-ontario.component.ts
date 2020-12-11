@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlosService } from '../../../services/glos.service'
 
 @Component({
   selector: 'app-lake-ontario',
@@ -17,7 +18,7 @@ export class LakeOntarioComponent implements OnInit {
   }
 
   mapWidth = 1200;
-  mapHeight = 600;
+  mapHeight = 540;
 
   mapOptions: google.maps.MapOptions = {
     center: { lat: 43.5, lng: -77.5 },
@@ -29,9 +30,37 @@ export class LakeOntarioComponent implements OnInit {
     disableDefaultUI: true,
   };
 
-  constructor() { }
 
+  constructor(private glosService: GlosService) { }
+  
+  buoys;
+  filteredBuoys = [];
+  tabledBuoys = [];
+  rows = [];
   ngOnInit(): void {
+    this.glosService.getGlos().subscribe((result: any) => {
+      this.buoys = result;  
+      console.log(this.buoys);
+      
+      for(let i = 1; i < this.buoys.length; i++){
+        if(this.buoys[i].lake == "ON"){
+          this.filteredBuoys.push(this.buoys[i])
+        }
+      }
+
+      for(let i = 1; i < this.filteredBuoys.length; i++){
+        this.tabledBuoys.push(this.filteredBuoys[i]);
+        if(i % 6 == 0){
+          this.rows.push(this.tabledBuoys);
+          this.tabledBuoys = [];
+        }
+      }
+      this.rows.push(this.tabledBuoys)
+
+    });
   }
 
+  titleChange(name){
+    document.getElementById("title").innerHTML = name;
+  }
 }
