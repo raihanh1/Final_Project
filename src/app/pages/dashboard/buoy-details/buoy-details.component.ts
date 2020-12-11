@@ -17,14 +17,15 @@ export class BuoyDetailsComponent implements OnInit {
   id;
   currentBuoy;
 
+  mapWidth = 144;
+  mapHeight = 144;
+
   constructor(
     private weatherService: WeatherForecastService,
     private buoyService: GlosService,
     private route: ActivatedRoute,
     private router: Router
-   
-  ) { 
-  }
+  ) { }
 
   ngOnInit(): void {
 
