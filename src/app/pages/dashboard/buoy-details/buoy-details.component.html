@@ -2,11 +2,11 @@
   <div class="buoy-page-top">
 
     <div class="map-section">
-      <!-- <app-map
+      <app-map
       [mapWidth]="mapWidth"
       [mapHeight]="mapHeight"
       >
-    </app-map> -->
+    </app-map>
     </div>
 
     <div class="header-section">
@@ -43,21 +43,35 @@
   </div>
   <div class="recreation-container container">
     <h3 class="container-title">These Conditions are Good For</h3>
+
     <div class="recreation-items-container information-container">
+      <img src="../assets/icon-swimming.svg" alt="Swimming" class="icon-conditions">
       Swimming - Wind Speed: {{ currentBuoy.NWSForecast.windspeed[0] }}
     </div>
+
     <div class="recreation-items-container information-container">
+      <img src="../assets/icon-kayaking.svg" alt="Kayaking" class="icon-conditions">
       Kayaking - Wave Height: {{ currentBuoy.NWSForecast.waveheight[0] }}
     </div>
+
     <div class="recreation-items-container information-container">
+      <img src="../assets/icon-fishing.svg" alt="Fishing" class="icon-conditions">
       Fishing
     </div>
+
+    <div class="recreation-items-container information-container">
+      <img src="../assets/icon-boating.svg" alt="Boating" class="icon-conditions">
+      Boating
+    </div>
+
   </div>
   <div class="video-container container">
     <div class="information-container">
       <p>looping video</p>
     </div>
   </div>
+
+
   <!-- <div class="water-temp-chart-container container">
     <h3 class="container-title">Water Temp</h3>
     <div class="information-container">
@@ -70,11 +84,14 @@
       <p>Currents Chart</p>
     </div>
   </div> -->
+
+
   <div class="buoy-info-container container">
     <h2 class="info-title">Buoy Info</h2>
     <div class="rectangle"></div>
     <p class="buoy-details" [innerHTML]="currentBuoy.buoyInfo"></p>
   </div>
+  
   <div class="access-details">
     <p>SMS: Text 45175 toll free to <a href="tel:866-218-9973">866-218-9973</a> for latest observations.</p>
     <p>GLOS <a href="http://data.glos.us/metadata/srv/eng/main.home">Data Portal</a>: Access more data, models, and create alerts.</p>
