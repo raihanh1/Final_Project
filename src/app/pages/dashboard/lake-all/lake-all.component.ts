@@ -51,15 +51,16 @@ export class LakeAllComponent implements OnInit {
     });
 
     
-    this.buoy$ = this.route.paramMap.pipe(
-      switchMap(params => {
-        this.selectedId = Number(params.get('id'));
-        return this.buoyService.getGlos();
-      })
-    );
+    // this.buoy$ = this.route.paramMap.pipe(
+    //   switchMap(params => {
+    //     this.selectedId = Number(params.get('id'));
+    //     return this.buoyService.getGlos();
+    //   })
+    // );
   }
 
-  goToBuoy(i) {
-    this.router.navigate([`/buoyportal/buoy/${this.buoyInformation[i].id}`])
-  }
+  // goToBuoy(i) {
+  //   this.router.navigate([`/buoyportal/buoy/${this.buoyInformation[i].id}`])
+  // }
+
 }
