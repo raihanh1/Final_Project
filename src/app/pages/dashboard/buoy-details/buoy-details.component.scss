@@ -98,8 +98,6 @@
   margin: 20px 16px 20px 16px;
 }
 
-
-
 .information-container {
   
   height: 168px;
@@ -140,6 +138,11 @@
   font-size: 12px;
   text-align: center;
 }
+
+a {
+  color: var(--charcoal);
+}
+
 @media screen and (min-width: 768px){
   .buoy-page {
     display: inline;
@@ -193,7 +196,7 @@
   }
 
   .recreation-items-container {
-    height: 64px;
+    height: 48px;
   }
   
   .access-details {

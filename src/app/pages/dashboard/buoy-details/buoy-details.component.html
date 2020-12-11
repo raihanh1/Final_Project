@@ -37,10 +37,10 @@
   <div class="recreation-container container">
     <h3 class="container-title">These Conditions are Good For</h3>
     <div class="recreation-items-container information-container">
-      Swimming
+      Swimming - Wind Speed: {{ currentBuoy.NWSForecast.windspeed[0] }}
     </div>
     <div class="recreation-items-container information-container">
-      Kayaking
+      Kayaking - Wave Height: {{ currentBuoy.NWSForecast.waveheight[0] }}
     </div>
     <div class="recreation-items-container information-container">
       Fishing
@@ -66,15 +66,10 @@
   <div class="buoy-info-container container">
     <h2 class="info-title">Buoy Info</h2>
     <div class="rectangle"></div>
-    <p class="buoy-details">{{ currentBuoy.buoyInfo }}</p>
-    <br />
-    <p class="metadata">
-      View metadata for this buoy stored in the Great Lakes Observing System
-      Metadata Catalog
-    </p>
+    <p class="buoy-details" [innerHTML]="currentBuoy.buoyInfo"></p>
   </div>
   <div class="access-details">
-    <p>SMS: Text 45175 toll free to 866-218-9973 for latest observations.</p>
-    <p>GLOS Data Portal: Access more data, models, and create alerts.</p>
+    <p>SMS: Text 45175 toll free to <a href="tel:866-218-9973">866-218-9973</a> for latest observations.</p>
+    <p>GLOS <a href="http://data.glos.us/metadata/srv/eng/main.home">Data Portal</a>: Access more data, models, and create alerts.</p>
   </div>
 </div>
