@@ -18,7 +18,9 @@ import { LakeHuronComponent } from './pages/dashboard/lake-huron/lake-huron.comp
 import { LakeMichiganComponent } from './pages/dashboard/lake-michigan/lake-michigan.component';
 import { LakeOntarioComponent } from './pages/dashboard/lake-ontario/lake-ontario.component';
 import { LakeSuperiorComponent } from './pages/dashboard/lake-superior/lake-superior.component';
+import { FavoritepageComponent} from './favoritepage/favoritepage.component'
 import { GoogleMapsModule } from '@angular/google-maps';
+
 
 
 
@@ -37,6 +39,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     LakeMichiganComponent,
     LakeOntarioComponent,
     LakeSuperiorComponent,
+    FavoritepageComponent,
   ],
   imports: [
     BrowserModule,

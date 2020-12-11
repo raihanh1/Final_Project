@@ -14,6 +14,7 @@
         <tr *ngFor="let cells of rows;">
             <td *ngFor="let buoy of cells">
                 <span class="buoyid" (mouseenter)=titleChange(buoy.longName)>{{ buoy.id }}</span>
+                <span>{{buoy.webcamLink}}</span>
             </td>
         </tr>
     </table>

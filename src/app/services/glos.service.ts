@@ -14,4 +14,19 @@ export class GlosService {
   getGlos () {
     return this.http.get('https://glbuoys.glos.us/static/Buoy_tool/data/meta_english.json');
   }
+  
+  getPosition(): Promise<any>
+  {
+    return new Promise((resolve, reject) => {
+
+      navigator.geolocation.getCurrentPosition(resp => {
+
+          resolve({lng: resp.coords.longitude, lat: resp.coords.latitude});
+        },
+        err => {
+          reject(err);
+        });
+    });
+
+  }
 }
