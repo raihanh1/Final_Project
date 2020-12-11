@@ -17,8 +17,8 @@ export class BuoyDetailsComponent implements OnInit {
   currentBuoy;
   waveHeight;
 
-  mapWidth = 144;
-  mapHeight = 144;
+  mapWidth = 100;
+  mapHeight = 100;
 
   constructor(
     private weatherService: WeatherForecastService,

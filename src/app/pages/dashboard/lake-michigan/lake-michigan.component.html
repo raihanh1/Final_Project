@@ -12,19 +12,13 @@
         <img id="icon-buoy" src="../../../../assets/icon-buoy.svg">
         <span id="title"></span>
     </div>
-
     <table>
-        <tr *ngFor="let cells of rows;">
-            <td *ngFor="let buoy of cells">
-                <span class="buoyid" (mouseenter)=titleChange(buoy.longName)>{{ buoy.id }}</span>
-                <span>{{buoy.webcamLink}}</span>
         <tr *ngFor="let cells of rows" class="table-rows">
             <td *ngFor="let buoy of cells" (mouseenter)=titleChange(buoy.longName) class="table-cells">
                 <span class="buoyid">{{ buoy.id }}</span>
             </td>
         </tr>
     </table>
-
 </div>
 
 <div class="about">
