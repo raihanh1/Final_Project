@@ -1,10 +1,5 @@
 .buoy-page {
-  // margin: auto;
   color: var(--charcoal);
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // width: 100vw;
 }
 
 .map-section {
@@ -16,15 +11,8 @@
   );
 }
 
-.header-section {
-  
-}
-
 .buoy-header {
-  // height: 30px;
-  // margin-top: 16px;
   display: flex;
-  // flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
@@ -59,10 +47,17 @@
   cursor: pointer;
 }
 
-.icon-favorite-empty {
+.icon-favorite {
   width: 16px;
   height: 16px;
-  filter: invert(32%) sepia(65%) saturate(612%) hue-rotate(183deg) brightness(83%) contrast(83%);
+}
+
+.fav-button {
+  transition: 0.2s ease-in-out;
+}
+
+.fav-button.is-filled {
+  background: var(--dark-blue);
 }
 
 .buoy-title {

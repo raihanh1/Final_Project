@@ -42,8 +42,6 @@ export class BuoyDetailsComponent implements OnInit {
     // Routing from the click event
     this.route.params.subscribe(params => {
       this.id = params['id'];
-      console.log(this.id, "id");
-    
 
     // Getting the GLOS API and using the long and lat to call the weather API
     this.buoyService.getGlos().subscribe((response:any) => {
@@ -53,12 +51,31 @@ export class BuoyDetailsComponent implements OnInit {
       this.waveHeight = this.currentBuoy.NWSForecast.waveheight[0];
       console.log(this.waveHeight, 'wave height');
       this.weatherService.getWeather(this.currentBuoy.lat, this.currentBuoy.lon).subscribe((response:any) => {
-        console.log(response);
         this.weatherForecast = response;
       });
     });
   });
   }
   
+  toggleFavorite = (buoyId) => {
+    let favorites = JSON.parse(window.localStorage.getItem('favorites'));
+    if (!favorites) {
+      favorites = [];
+    }
+    if (favorites.includes(buoyId)) {
+      // remove from favorites
+      const indexOfBuoyToRemove = favorites.findIndex((favorite) => favorite === buoyId);
+      favorites.splice(indexOfBuoyToRemove, 1);
+      window.localStorage.setItem('favorites', JSON.stringify(favorites));
+    } else {
+      favorites.push(buoyId);
+      window.localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+  }
+
+  isFavorite = (buoyId) => {
+    let favorites = JSON.parse(window.localStorage.getItem('favorites'));
+    return favorites.includes(buoyId);
+  }
 
 }
