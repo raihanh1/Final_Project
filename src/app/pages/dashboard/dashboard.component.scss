@@ -3,10 +3,10 @@
     height: 100vh;
     padding-top: 40px;
     position: fixed;
-    top: 0;
+    z-index: 5;
     // display: none;
-    background-image:
-    linear-gradient(to bottom, var(--dark-blue), var(--turquoise));
+    background-image:linear-gradient(to bottom, var(--dark-blue), var(--turquoise));
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 .nav-top-section {
@@ -127,6 +127,7 @@
 .dashboard-ctn {
     position: absolute;
     left: 320px;
+    top: 72px;
 }
 
 
