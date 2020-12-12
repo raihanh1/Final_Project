@@ -5,6 +5,7 @@
       <app-map
       [mapWidth]="mapWidth"
       [mapHeight]="mapHeight"
+      [mapOptions]="mapOptions"
       >
     </app-map>
     </div>
@@ -65,6 +66,7 @@
     </div>
 
   </div>
+
   <div class="video-container container">
     <div class="information-container">
       <p>looping video</p>
@@ -91,7 +93,7 @@
     <div class="rectangle"></div>
     <p class="buoy-details" [innerHTML]="currentBuoy.buoyInfo"></p>
   </div>
-  
+
   <div class="access-details">
     <p>SMS: Text 45175 toll free to <a href="tel:866-218-9973">866-218-9973</a> for latest observations.</p>
     <p>GLOS <a href="http://data.glos.us/metadata/srv/eng/main.home">Data Portal</a>: Access more data, models, and create alerts.</p>

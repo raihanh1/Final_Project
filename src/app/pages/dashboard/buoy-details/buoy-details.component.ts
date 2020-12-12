@@ -19,6 +19,16 @@ export class BuoyDetailsComponent implements OnInit {
 
   mapWidth = 144;
   mapHeight = 144;
+  mapOptions: google.maps.MapOptions = {
+    center: { lat: 44.75, lng: -82 },
+    zoom: 10,
+    maxZoom: 10,
+    minZoom: 10,
+    mapTypeId: 'hybrid',
+    disableDefaultUI: true,
+    disableDoubleClickZoom: true,
+    draggable: false,
+  };
 
   constructor(
     private weatherService: WeatherForecastService,
