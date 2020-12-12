@@ -20,6 +20,10 @@ export class DashboardComponent implements OnInit {
     // Redirect user to home screen
     // Not using router because need to force a reload for the state to change
     window.location.href = '/buoyportal/all-lakes';
-}
+  }
 
+  closeMenu = () => {
+    const sideNav = document.querySelector('.nav-side-ctn');
+    sideNav.style.display = 'none';
+  }
 }
