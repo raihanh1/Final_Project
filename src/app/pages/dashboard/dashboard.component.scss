@@ -33,6 +33,25 @@
     cursor: pointer;
 }
 
+.logout-btn {
+    width: 104px;
+    margin: 0 0 8px 24px;
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    line-height: 1;
+    font-size: 14px;
+    color: var(--white);
+
+    cursor: pointer;
+}
+
+.icon-logout {
+    margin-right: 4px;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(174deg) brightness(102%) contrast(101%);
+}
+
 .close-menu {
     margin-right: 24px;
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(174deg) brightness(102%) contrast(101%);
