@@ -66,6 +66,10 @@
     display: none;
 }
 
+.logout-btn {
+display: none;
+}
+
 @media screen and (min-width: 600px) {
     .nav-header {
         padding: 0px 40px;
@@ -118,6 +122,23 @@
 
     .login-btn:hover {
         background-color: var(--cobalt);
+    }
+
+    .logout-btn {
+        display: flex;
+        align-items: center;
+    
+        height: 32px;
+        line-height: 1;
+    
+        font-size: 14px;
+        background-color: transparent;
+        color: var(--charcoal);
+    
+        border: none;
+    
+        cursor: pointer;
+        outline: none;
     }
 }
 

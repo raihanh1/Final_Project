@@ -8,7 +8,8 @@
         <div class="menu-btn-container">
             <img class="menu-btn" src="../assets/icon-menu.svg" alt="Menu">
         </div>
-        <button class="create-profile-btn" routerLink="/register">Create Profile</button>
-        <button class="login-btn" routerLink="/login">Login</button>
+        <button class="create-profile-btn" routerLink="/register" *ngIf="!isLoggedIn">Create Profile</button>
+        <button class="login-btn" routerLink="/login" *ngIf="!isLoggedIn">Login</button>
+        <button class="logout-btn" routerLink="/buoyportal/all-lakes" *ngIf="isLoggedIn"><img src="../assets/icon-logout.svg" class="icon-logout"> Logout</button>
     </div>
 </nav>
