@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'nav-top',
@@ -8,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class NavTopComponent implements OnInit {
   isLoggedIn: string = window.localStorage.getItem('greatLakes_isLoggedIn');
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
+  }
+
+  toHome = () => {
+    this.router.navigateByUrl(`/buoyportal/all-lakes`);
   }
 
   logoutUser = () => {
