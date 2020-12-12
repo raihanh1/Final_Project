@@ -11,9 +11,15 @@ export class NavTopComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // Set variable that is accessible from the HTML
-    // That variable will access the local storage
-    console.log(typeof this.isLoggedIn);
+
+  }
+
+  logoutUser = () => {
+        // Remove loggedin variable from local storage
+        window.localStorage.removeItem('greatLakes_isLoggedIn')
+        // Redirect user to home screen
+        // Not using router because need to force a reload for the state to change
+        window.location.href = '/buoyportal/all-lakes';
   }
 
 
