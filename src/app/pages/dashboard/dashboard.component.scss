@@ -1,12 +1,12 @@
 .nav-side-ctn {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     padding-top: 40px;
     position: fixed;
-    top: 0;
-    display: none;
-    background-image:
-    linear-gradient(to bottom, var(--dark-blue), var(--turquoise));
+    z-index: 5;
+    // display: none;
+    background-image:linear-gradient(to bottom, var(--dark-blue), var(--turquoise));
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 .nav-top-section {
@@ -31,6 +31,25 @@
     color: var(--white);
 
     cursor: pointer;
+}
+
+.logout-btn {
+    width: 104px;
+    margin: 0 0 8px 24px;
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    line-height: 1;
+    font-size: 14px;
+    color: var(--white);
+
+    cursor: pointer;
+}
+
+.icon-logout {
+    margin-right: 4px;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(174deg) brightness(102%) contrast(101%);
 }
 
 .close-menu {
@@ -108,6 +127,7 @@
 .dashboard-ctn {
     position: absolute;
     left: 320px;
+    top: 72px;
 }
 
 

@@ -25,4 +25,19 @@ export class GlosService {
       // when we find the index we need to go to the obsValues and find the number from the same index
     }
   }
+  
+  getPosition(): Promise<any>
+  {
+    return new Promise((resolve, reject) => {
+
+      navigator.geolocation.getCurrentPosition(resp => {
+
+          resolve({lng: resp.coords.longitude, lat: resp.coords.latitude});
+        },
+        err => {
+          reject(err);
+        });
+    });
+
+  }
 }

@@ -1,12 +1,15 @@
+<nav-top></nav-top>
+
 <nav class="nav-side-ctn">
     <div class="nav-items-ctn">
 
         <div class="nav-top-section">
             <div class="nav-links-profile-ctn">
-                <a routerLink="/register" class="nav-link-profile">Create Profile</a>
-                <a routerLink="/login" class="nav-link-profile">Login</a>
+                <a routerLink="/register" *ngIf="!isLoggedIn" class="nav-link-profile">Create Profile</a>
+                <a routerLink="/login" *ngIf="!isLoggedIn" class="nav-link-profile">Login</a>
+                <a routerLink="/buoyportal/all-lakes" *ngIf="isLoggedIn" class="logout-btn" (click)="logoutUser()"><img src="../assets/icon-logout.svg" class="icon-logout">Logout</a>
             </div>
-            <img src="../assets/icon-close.svg" alt="Close" class="close-menu">
+            <img src="../assets/icon-close.svg" alt="Close" class="close-menu" (click)="closeMenu()">
         </div>
 
 

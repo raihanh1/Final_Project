@@ -20,12 +20,25 @@ export class BuoyDetailsComponent implements OnInit {
   windSpeed;
   waterTemp;
 
+  mapWidth = 144;
+  mapHeight = 144;
+  mapOptions: google.maps.MapOptions = {
+    center: { lat: 44.75, lng: -82 },
+    zoom: 10,
+    maxZoom: 10,
+    minZoom: 10,
+    mapTypeId: 'hybrid',
+    disableDefaultUI: true,
+    disableDoubleClickZoom: true,
+    draggable: false,
+  };
+
   constructor(
     private weatherService: WeatherForecastService,
     private buoyService: GlosService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // Routing from the click event
@@ -54,4 +67,26 @@ export class BuoyDetailsComponent implements OnInit {
   filterValues() {
     this.buoyService.filterValues(this.obsName, 'Water Temp');
   }
+  
+  toggleFavorite = (buoyId) => {
+    let favorites = JSON.parse(window.localStorage.getItem('favorites'));
+    if (!favorites) {
+      favorites = [];
+    }
+    if (favorites.includes(buoyId)) {
+      // remove from favorites
+      const indexOfBuoyToRemove = favorites.findIndex((favorite) => favorite === buoyId);
+      favorites.splice(indexOfBuoyToRemove, 1);
+      window.localStorage.setItem('favorites', JSON.stringify(favorites));
+    } else {
+      favorites.push(buoyId);
+      window.localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+  }
+
+  isFavorite = (buoyId) => {
+    let favorites = JSON.parse(window.localStorage.getItem('favorites'));
+    return favorites.includes(buoyId);
+  }
+
 }
