@@ -12,7 +12,6 @@ export class LakeAllComponent implements OnInit {
   buoyInformation;
   buoy$;
   selectedId;
-  // heroes = HEROES;
   id;
 
   lakeBounds: google.maps.MapRestriction = {
