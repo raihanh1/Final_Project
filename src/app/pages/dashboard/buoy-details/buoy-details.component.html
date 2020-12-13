@@ -35,30 +35,28 @@
 
       </div>
 
-      <div class="buoy-title-section">
+      <div class="buoy-title-section" *ngIf="buoyInformation">
         <h2 class="buoy-title">{{ currentBuoy.longName | uppercase }}</h2>
         <p class="buoy-number">({{ currentBuoy.id }})</p>
       </div>
     </div>
-
-    <!-- <p class="buoy-update">Last updated: {{ buoyInformation[0].updateTime }}</p> -->
   </div>
-  <div class="recreation-container container">
+  <div class="recreation-container container" *ngIf="buoyInformation">
     <h3 class="container-title">These Conditions are Good For</h3>
 
     <div class="recreation-items-container information-container">
-      <img src="../assets/icon-swimming.svg" alt="Swimming" class="icon-conditions">
-      Swimming - Wind Speed: {{ currentBuoy.NWSForecast.windspeed[0] }}
+      <img class="recreation-icon" src="../assets/icon-swimming.svg" alt="Swimming"> Swimming
+    </div>
+    <div class="recreation-items-container information-container">
+      <img class="recreation-icon" src="../assets/icon-kayaking.svg" alt="Kayaking"> Kayaking
     </div>
 
     <div class="recreation-items-container information-container">
-      <img src="../assets/icon-kayaking.svg" alt="Kayaking" class="icon-conditions">
-      Kayaking - Wave Height: {{ currentBuoy.NWSForecast.waveheight[0] }}
+      <img class="recreation-icon" src="../assets/icon-fishing.svg" alt="Fishing"> Fishing
     </div>
 
     <div class="recreation-items-container information-container">
-      <img src="../assets/icon-fishing.svg" alt="Fishing" class="icon-conditions">
-      Fishing
+      <img class="recreation-icon" src="../assets/icon-boating.svg" alt="Boating"> Boating
     </div>
 
     <div class="recreation-items-container information-container">
@@ -73,23 +71,7 @@
       <p>looping video</p>
     </div>
   </div>
-
-
-  <!-- <div class="water-temp-chart-container container">
-    <h3 class="container-title">Water Temp</h3>
-    <div class="information-container">
-      <p>Water Temperature Chart</p>
-    </div>
-  </div>
-  <div class="currents-chart-container container">
-    <h3 class="container-title">Currents</h3>
-    <div class="information-container">
-      <p>Currents Chart</p>
-    </div>
-  </div> -->
-
-
-  <div class="buoy-info-container container">
+  <div class="buoy-info-container container" *ngIf="buoyInformation">
     <h2 class="info-title">Buoy Info</h2>
     <div class="rectangle"></div>
     <p class="buoy-details" [innerHTML]="currentBuoy.buoyInfo"></p>

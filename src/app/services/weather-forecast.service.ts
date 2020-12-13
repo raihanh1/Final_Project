@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { WEATHER_API_KEY } from '../variables.js';
 
 @Injectable({
   providedIn: 'root'

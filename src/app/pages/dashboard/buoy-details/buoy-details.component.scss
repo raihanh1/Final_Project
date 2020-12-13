@@ -97,6 +97,12 @@
   height: 48px;
   padding: 16px;
   font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.recreation-icon {
+  margin-right: 16px;
 }
 
 .icon-conditions {
