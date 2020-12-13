@@ -1,5 +1,8 @@
+<!-- Map Legend -->
 <app-map-key></app-map-key>
 
+
+<!-- Map -->
 <app-map
 [mapWidth]="mapWidth"
 [mapHeight]="mapHeight"
@@ -7,6 +10,22 @@
 >
 </app-map>
 
+
+<!-- Buoy of the Day Video -->
+<div class="buoyOfTheDay">
+    <div class="botd-header-ctn">
+        <img src="../../../../assets/icon-buoy.svg" class="icon-buoy">
+        <span class="botd-header">Buoy of the Day</span>
+    </div>
+
+    <div class="videoModal">
+        <h2 class="buoyName">{{ chosenBuoy }}</h2>
+        <iframe [src]="sanitize(chosenVideoLink)" frameborder="0" class="botd-video"></iframe>
+    </div>
+</div>
+
+
+<!-- About the Buoy Portal -->
 <div class="about">
     <span class="aboutTitle">About the Buoy Portal</span>
     <div class="rectangle"></div>

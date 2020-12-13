@@ -27,8 +27,8 @@ export class NavTopComponent implements OnInit {
         window.location.href = '/buoyportal/all-lakes';
   }
 
-  openMenu = () => {
-    const sideNav = document.querySelector('.nav-side-ctn');
-    sideNav.style.display = 'block';
-  }
+  // openMenu = () => {
+  //   const sideNav = document.querySelector('.nav-side-ctn');
+  //   sideNav.style.display = 'block';
+  // }
 }
