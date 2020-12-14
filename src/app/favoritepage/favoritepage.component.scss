@@ -1,13 +1,14 @@
 ::ng-deep .map-container {
   height: 344px !important;
+  width:440px !important;
   left: 122px !important;
   display: inline-block;
 }
 
-::ng-deep google-map {
-  left: 0px !important;
-  position: unset !important;
-}
+// ::ng-deep google-map {
+//   left: 0px !important;
+//   position: unset !important;
+// }
 
 .favtitle {
   width: 249px;
@@ -64,6 +65,11 @@
   border-radius: 8px;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
   background-color: var(--White);
+
+}
+
+#icon-buoy {
+  filter: invert(32%) sepia(65%) saturate(612%) hue-rotate(183deg) brightness(83%) contrast(83%);
 }
 
 .favorites {
@@ -85,6 +91,7 @@
   height: 24px;
   vertical-align: super;
   margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .nBuoys {
@@ -131,10 +138,22 @@
   cursor: pointer;
 }
 
+.finishbutton {
+  width: 100%;
+  color: white;
+  margin-top: 20px;
+  padding: 9px 125px 8px 126px;
+  border: none;
+  border-radius: 18px;
+  background-image: linear-gradient(to right, #3b5795, #3997b5);
+  outline: none;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 696px) {
   ::ng-deep .map-container {
-    left: 0 !important;
-    width: 100% !important;
+    left: 15px !important;
+    width: 90% !important;
   }
 
   .nearestbuoy {
@@ -161,6 +180,10 @@
 
   .skip {
     margin-right: 16px;
+  }
+
+  .finishbutton {
+    width: 5px;
   }
 
   .favtitle,

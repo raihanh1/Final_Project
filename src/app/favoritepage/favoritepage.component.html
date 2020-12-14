@@ -7,13 +7,14 @@
     <div class="info">
         <app-map></app-map>
         <div class="nearestbuoy">
-            <img src="../../../../assets/icon-buoy.svg">
+            <img id="icon-buoy" src="../../../../assets/icon-buoy.svg">
             <span id="title">Nearest Buoys</span>
             <span class="nBuoys" *ngFor="let buoy of nearestBuoys, index as i"><br><span id="name">{{ buoy[0] }}</span> <button (click)="addToFavorites(buoy[0])" class="favButton"><img id="star" src="../../../../assets/icon-favorite-empty.svg"></button></span>
         <div class="favorites">
-            <img src="../../../../assets/icon-buoy.svg">
+            <img id="icon-buoy" src="../../assets/icon-buoy.svg">
             <span id="title">Favorites</span>
             <p class="nBuoys" *ngFor="let buoy of favoriteBuoys, index as i"><br><span id="name">{{ buoy }}</span> <button (click)="removeFromFavorites(i)" class="removeButton"><img id="star" src="../../../../assets/icon-remove.svg"></button></p>
+            <button class="finishbutton" routerLink="/buoyportal/all-lakes">Finish</button>
         </div> 
         </div>        
     </div>
