@@ -61,31 +61,28 @@ export class LakeAllComponent implements OnInit {
           this.buoysWithLinkNames.push(this.buoyInformation[i].longName);
         }
       }
-      // this.buoysWithLinks.splice(1,1);
-      console.log(this.buoysWithLinks);
+      this.buoysWithLinks.splice(1,1);
       var numberChosen = Math.floor((Math.random() * 14));
       var linkParse = this.buoysWithLinks[numberChosen].split('/');
-      console.log(linkParse[4]);
       this.chosenBuoy = this.buoysWithLinkNames[numberChosen];
       this.chosenVideoLink = "https://www.limnotechdata.com/stations/albums/" + linkParse[4] + "/" + linkParse[4] + "720p.mp4";
-      console.log(this.chosenVideoLink);
     })
 
     
-    // this.buoy$ = this.route.paramMap.pipe(
-    //   switchMap(params => {
-    //     this.selectedId = Number(params.get('id'));
-    //     return this.buoyService.getGlos();
-    //   })
-    // );
+    this.buoy$ = this.route.paramMap.pipe(
+      switchMap(params => {
+        this.selectedId = Number(params.get('id'));
+        return this.buoyService.getGlos();
+      })
+    );
   }
 
   sanitize(url){
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-  // goToBuoy(i) {
-  //   this.router.navigate([`/buoyportal/buoy/${this.buoyInformation[i].id}`])
-  // }
+  goToBuoy(i) {
+    this.router.navigate([`/buoyportal/buoy/${this.buoyInformation[i].id}`])
+  }
 
 }

@@ -86,7 +86,9 @@ export class BuoyDetailsComponent implements OnInit {
 
   isFavorite = (buoyId) => {
     let favorites = JSON.parse(window.localStorage.getItem('favorites'));
-    return favorites.includes(buoyId);
+    if (favorites){
+      return favorites.includes(buoyId);
+    }
   }
 
 }
