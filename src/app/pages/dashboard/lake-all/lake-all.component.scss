@@ -1,8 +1,41 @@
-.favorite-buoy {
-    margin-top: 40px;
-    margin-left: 48px;
-    margin-bottom: 56px;
-    padding-right: 104px;
+// Buoy of the Day Video
+.buoyOfTheDay {
+  margin-top: 40px;
+  margin-left: 48px;
+  padding-right: 104px;
+}
+
+.botd-header-ctn {
+  display: flex;
+  align-items: center;
+}
+
+.botd-header {
+  font-size: 16px;
+  color: var(--charcoal);
+}
+
+.icon-buoy {
+  margin-right: 8px;
+  filter: invert(32%) sepia(65%) saturate(612%) hue-rotate(183deg) brightness(83%) contrast(83%);
+}
+
+.videoModal {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.buoyName {
+  font-size: 16px;
+  margin: 16px 0;
+  color: var(--charcoal);
+}
+
+.botd-video {
+  width: 100%;
+  height: 600px;
 }
 
 
