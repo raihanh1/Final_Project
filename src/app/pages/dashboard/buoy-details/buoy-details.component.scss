@@ -1,14 +1,8 @@
 .buoy-page {
-  // margin: auto;
   color: var(--charcoal);
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // width: 100vw;
 }
 
 .map-section {
-  width: 144px;
   height: 144px;
   background-image: linear-gradient(
     to left,
@@ -17,15 +11,8 @@
   );
 }
 
-.header-section {
-  
-}
-
 .buoy-header {
-  // height: 30px;
-  // margin-top: 16px;
   display: flex;
-  // flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
@@ -60,10 +47,17 @@
   cursor: pointer;
 }
 
-.icon-favorite-empty {
+.icon-favorite {
   width: 16px;
   height: 16px;
-  filter: invert(32%) sepia(65%) saturate(612%) hue-rotate(183deg) brightness(83%) contrast(83%);
+}
+
+.fav-button {
+  transition: 0.2s ease-in-out;
+}
+
+.fav-button.is-filled {
+  background: var(--dark-blue);
 }
 
 .buoy-title {
@@ -89,10 +83,11 @@
 }
 
 .information-container {
-  
   height: 168px;
   padding: 16px;
   margin-top: 10px;
+  display: flex;
+  align-items: center;
   border-radius: 8px;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
   background-color: var(--White);
@@ -100,8 +95,21 @@
 
 .recreation-items-container {
   height: 48px;
-  padding: 16px 0 16px 16px;
+  padding: 16px;
   font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.recreation-icon {
+  margin-right: 16px;
+}
+
+.icon-conditions {
+  height: 24px;
+  width: 24px;
+  margin-right: 16px;
+  filter: invert(32%) sepia(65%) saturate(612%) hue-rotate(183deg) brightness(83%) contrast(83%);
 }
 
 .buoy-info-container {
@@ -131,15 +139,20 @@
 
 a {
   color: var(--charcoal);
+  text-decoration: none;
 }
 
+
+////////
+////////
+////////
 @media screen and (min-width: 768px){
   .buoy-page {
     display: inline;
     position: absolute;
     width: 800px;
-    left: 320px;
-    margin-left: 100px;
+    // left: 320px;
+    margin-left: 104px;
   }
 
   .buoy-page-top {
@@ -155,8 +168,13 @@ a {
   .map-section {
     width: 144px;
     height: 144px;
-    padding: 61px 0 0;
     border-radius: 8px;
+    background-image: linear-gradient(
+      to left,
+      var(--turquoise),
+      var(--cobalt)
+    );
+    overflow: hidden;
   }
 
   .header-section {
@@ -192,6 +210,7 @@ a {
   .access-details {
     width: 800px;
     height: 66px;
+    margin-bottom: 56px;
     display: flex;
     flex-direction: column;
     align-items: center;

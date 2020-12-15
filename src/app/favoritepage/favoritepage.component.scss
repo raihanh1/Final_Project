@@ -1,14 +1,14 @@
 ::ng-deep .map-container {
   height: 344px !important;
-  width:440px !important;
   left: 122px !important;
+  width: 40% !important;
   display: inline-block;
 }
 
-// ::ng-deep google-map {
-//   left: 0px !important;
-//   position: unset !important;
-// }
+::ng-deep google-map {
+  left: 0px !important;
+  position: unset !important;
+}
 
 .favtitle {
   width: 249px;
@@ -25,7 +25,7 @@
 }
 
 .favbuoy {
-  margin-top: 64px;
+  margin-top: 128px;
 }
 
 .rectangle {
@@ -65,11 +65,6 @@
   border-radius: 8px;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
   background-color: var(--White);
-
-}
-
-#icon-buoy {
-  filter: invert(32%) sepia(65%) saturate(612%) hue-rotate(183deg) brightness(83%) contrast(83%);
 }
 
 .favorites {
@@ -91,7 +86,6 @@
   height: 24px;
   vertical-align: super;
   margin-bottom: 20px;
-  margin-left: 10px;
 }
 
 .nBuoys {
@@ -109,13 +103,26 @@
 }
 
 .favButton {
-  padding: 4px 20px;
+  padding: 10px 26px;
   border-radius: 16px;
   border: solid 1.5px #3b5795;
   background-color: var(--White);
   float: right;
   vertical-align: -webkit-baseline-middle;
   outline: none;
+  cursor: pointer;
+  background-image: url("/assets/icon-favorite-empty.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.favButton:active {
+  background-color: var(--dark-blue);
+  background-image: url("/assets/icon-favorite-filled.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .removeButton {
@@ -135,7 +142,6 @@
 #star {
   width: 16px;
   height: 16px;
-  cursor: pointer;
 }
 
 .finishbutton {
@@ -150,10 +156,14 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 696px) {
+#favpage {
+  display: flow-root;
+}
+
+@media only screen and (max-width: 807px) {
   ::ng-deep .map-container {
-    left: 15px !important;
-    width: 90% !important;
+    left: 0 !important;
+    width: 100% !important;
   }
 
   .nearestbuoy {
@@ -182,13 +192,10 @@
     margin-right: 16px;
   }
 
-  .finishbutton {
-    width: 5px;
-  }
-
   .favtitle,
   .rectangle {
     margin-left: 16px;
   }
 }
+
 

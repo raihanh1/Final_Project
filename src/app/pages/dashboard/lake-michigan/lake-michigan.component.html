@@ -12,7 +12,6 @@
         <img id="icon-buoy" src="../../../../assets/icon-buoy.svg">
         <span id="title"></span>
     </div>
-
     <table>
         <tr *ngFor="let cells of rows" class="table-rows">
             <td *ngFor="let buoy of cells" (mouseenter)=titleChange(buoy.longName) class="table-cells">
@@ -20,7 +19,6 @@
             </td>
         </tr>
     </table>
-
 </div>
 
 <div class="about">

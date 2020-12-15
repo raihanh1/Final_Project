@@ -1,7 +1,14 @@
 <div class="buoy-page">
   <div class="buoy-page-top">
 
-    <div class="map-section"></div>
+    <div class="map-section">
+      <app-map
+      [mapWidth]="mapWidth"
+      [mapHeight]="mapHeight"
+      [mapOptions]="mapOptions"
+      >
+    </app-map>
+    </div>
 
     <div class="header-section">
       <div class="buoy-header">
@@ -21,54 +28,55 @@
           </p>
         </div>
 
-        <div class="fav-button">
-          <img src="../assets/icon-favorite-empty.svg" class="icon-favorite-empty"/>
+        <div [ngClass]="{'fav-button': true, 'is-filled': isFavorite(currentBuoy.id)}" (click)="toggleFavorite(currentBuoy.id)">
+          <img src="../assets/icon-favorite-empty.svg" class="icon-favorite" *ngIf="!isFavorite(currentBuoy.id)" />
+          <img src="../assets/icon-favorite-filled.svg" class="icon-favorite" *ngIf="isFavorite(currentBuoy.id)" />
         </div>
 
       </div>
 
-      <div class="buoy-title-section">
+      <div class="buoy-title-section" *ngIf="buoyInformation">
         <h2 class="buoy-title">{{ currentBuoy.longName | uppercase }}</h2>
         <p class="buoy-number">({{ currentBuoy.id }})</p>
       </div>
     </div>
-
-    <!-- <p class="buoy-update">Last updated: {{ buoyInformation[0].updateTime }}</p> -->
   </div>
-  <div class="recreation-container container">
+  <div class="recreation-container container" *ngIf="buoyInformation">
     <h3 class="container-title">These Conditions are Good For</h3>
+
     <div class="recreation-items-container information-container">
-      Swimming - Wind Speed: {{ currentBuoy.NWSForecast.windspeed[0] }}
+      <img class="recreation-icon" src="../assets/icon-swimming.svg" alt="Swimming"> Swimming
     </div>
     <div class="recreation-items-container information-container">
-      Kayaking - Wave Height: {{ currentBuoy.NWSForecast.waveheight[0] }}
+      <img class="recreation-icon" src="../assets/icon-kayaking.svg" alt="Kayaking"> Kayaking
     </div>
+
     <div class="recreation-items-container information-container">
-      Fishing
+      <img class="recreation-icon" src="../assets/icon-fishing.svg" alt="Fishing"> Fishing
     </div>
+
+    <div class="recreation-items-container information-container">
+      <img class="recreation-icon" src="../assets/icon-boating.svg" alt="Boating"> Boating
+    </div>
+
+    <div class="recreation-items-container information-container">
+      <img src="../assets/icon-boating.svg" alt="Boating" class="icon-conditions">
+      Boating
+    </div>
+
   </div>
+
   <div class="video-container container">
     <div class="information-container">
       <p>looping video</p>
     </div>
   </div>
-  <!-- <div class="water-temp-chart-container container">
-    <h3 class="container-title">Water Temp</h3>
-    <div class="information-container">
-      <p>Water Temperature Chart</p>
-    </div>
-  </div>
-  <div class="currents-chart-container container">
-    <h3 class="container-title">Currents</h3>
-    <div class="information-container">
-      <p>Currents Chart</p>
-    </div>
-  </div> -->
-  <div class="buoy-info-container container">
+  <div class="buoy-info-container container" *ngIf="buoyInformation">
     <h2 class="info-title">Buoy Info</h2>
     <div class="rectangle"></div>
     <p class="buoy-details" [innerHTML]="currentBuoy.buoyInfo"></p>
   </div>
+
   <div class="access-details">
     <p>SMS: Text 45175 toll free to <a href="tel:866-218-9973">866-218-9973</a> for latest observations.</p>
     <p>GLOS <a href="http://data.glos.us/metadata/srv/eng/main.home">Data Portal</a>: Access more data, models, and create alerts.</p>
