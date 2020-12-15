@@ -63,11 +63,11 @@
   </div>
 
   <!-- Video Section -->
-  <div class="video-container container">
     <div class="information-container">
-      <p>looping video</p>
+      <div class="videoModal"></div>
+        <h2 class="buoyName">{{ chosenBuoy }}</h2>
+        <iframe [src]="sanitize(chosenVideoLink)" frameborder="0" class="botd-video"></iframe>
     </div>
-  </div>
   <div class="buoy-info-container container" *ngIf="buoyInformation">
     <h2 class="info-title">Buoy Info</h2>
     <div class="rectangle"></div>

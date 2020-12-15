@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GlosService } from 'src/app/services/glos.service';
 import { WeatherForecastService } from 'src/app/services/weather-forecast.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-buoy-details',
@@ -19,6 +20,10 @@ export class BuoyDetailsComponent implements OnInit {
   waveHeight;
   windSpeed;
   waterTemp;
+  chosenBuoy;
+  chosenVideoLink;
+  buoysWithLinks = [];
+  buoysWithLinkNames = [];
 
   mapWidth = 144;
   mapHeight = 144;
@@ -37,10 +42,29 @@ export class BuoyDetailsComponent implements OnInit {
     private weatherService: WeatherForecastService,
     private buoyService: GlosService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
+    this.buoyService.getGlos().subscribe((response:any) => {
+      this.buoyInformation = response;
+      // Iterate over GLOS API
+      for (var i = 0; i < this.buoyInformation.length; i++){
+        // If buoy video isn't undefined, then push video and buoy name to arrays
+        if(this.buoyInformation[i].webcamLink[0] !== undefined){
+          this.buoysWithLinks.push(this.buoyInformation[i].webcamLink[0]);
+          this.buoysWithLinkNames.push(this.buoyInformation[i].longName);
+        }
+      }
+      this.buoysWithLinks.splice(1,1);
+      var numberChosen = Math.floor((Math.random() * 14));
+      var linkParse = this.buoysWithLinks[numberChosen].split('/');
+      this.chosenBuoy = this.buoysWithLinkNames[numberChosen];
+      this.chosenVideoLink = "https://www.limnotechdata.com/stations/albums/" + linkParse[4] + "/" + linkParse[4] + "720p.mp4";
+    })
+    
+    
     // Routing from the click event
     this.route.params.subscribe((params) => {
       this.id = params['id'];
@@ -68,6 +92,9 @@ export class BuoyDetailsComponent implements OnInit {
   
   }
   
+  sanitize(url){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
   
   
   toggleFavorite = (buoyId) => {
