@@ -52,21 +52,23 @@ export class BuoyDetailsComponent implements OnInit {
           return x.id === this.id;
         });
         console.log(this.currentBuoy, 'buoy information');
-        this.obsName = this.currentBuoy.obsLongName;
+        if (this.currentBuoy.obsLongName) {
+          this.buoyService.filterValues(this.currentBuoy.obsLongName, this.currentBuoy.obsValues)
+        }
+        
 
         this.weatherService
-        // Using the lat and lon from currentBuoy to get the weater for that buoy
+        // Using the lat and lon from currentBuoy to get the weather for that buoy
           .getWeather(this.currentBuoy.lat, this.currentBuoy.lon)
           .subscribe((response: any) => {
             this.weatherForecast = response;
           });
       });
     });
-    this.filterValues();
+  
   }
-  filterValues() {
-    this.buoyService.filterValues(this.obsName, 'Water Temp');
-  }
+  
+  
   
   toggleFavorite = (buoyId) => {
     let favorites = JSON.parse(window.localStorage.getItem('favorites'));
@@ -86,7 +88,11 @@ export class BuoyDetailsComponent implements OnInit {
 
   isFavorite = (buoyId) => {
     let favorites = JSON.parse(window.localStorage.getItem('favorites'));
+    if (favorites) {
+      
     return favorites.includes(buoyId);
+    }
+    
   }
 
 }

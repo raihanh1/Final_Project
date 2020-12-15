@@ -22,8 +22,8 @@ export class DashboardComponent implements OnInit {
     window.location.href = '/buoyportal/all-lakes';
   }
 
-  closeMenu = () => {
-    const sideNav = document.querySelector('.nav-side-ctn');
-    sideNav.style.display = 'none';
-  }
+  // closeMenu = () => {
+  //   const sideNav = document.querySelector('.nav-side-ctn');
+  //   sideNav.style.display = 'none';
+  // }
 }

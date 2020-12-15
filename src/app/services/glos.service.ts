@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ConsoleReporter } from 'jasmine';
 
 @Injectable({
   providedIn: 'root',
@@ -13,31 +14,27 @@ export class GlosService {
     );
   }
 
-  // Need to filter through the array to see if obsLongName exists. 
-  // if it does, find the index of the string that corresponds with water temp or wave height, etc. 
-  // Using the index, find the value on obsValue that corresponds to that name, and returning the value.
-  filterValues(name, string) {
-    // Name is this.currentBuoy
-    // String will be "Water Temp" or "Wave Height" etc
-    // If obsLongName exists, find the index of the string
-    if (name.includes(string)) {
-      let position = name.findIndex(string);
-      // when we find the index we need to go to the obsValues and find the number from the same index
-    }
+  filterValues(nameArray: any[], valuesArray: any[]) {
+    const WSIdx = nameArray.indexOf('Wind Speed');
+    const WSValue = valuesArray[WSIdx];
+    const WTIdx = nameArray.indexOf('Water Temp');
+    const WTValue = valuesArray[WTIdx];
+    const WHIdx = nameArray.indexOf('Wave Height')
+    const WHValue = valuesArray[WHIdx];
+    console.log(WHValue, 'wave height');
+
   }
-  
-  getPosition(): Promise<any>
-  {
+
+  getPosition(): Promise<any> {
     return new Promise((resolve, reject) => {
-
-      navigator.geolocation.getCurrentPosition(resp => {
-
-          resolve({lng: resp.coords.longitude, lat: resp.coords.latitude});
+      navigator.geolocation.getCurrentPosition(
+        (resp) => {
+          resolve({ lng: resp.coords.longitude, lat: resp.coords.latitude });
         },
-        err => {
+        (err) => {
           reject(err);
-        });
+        }
+      );
     });
-
   }
 }

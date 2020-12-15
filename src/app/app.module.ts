@@ -21,6 +21,7 @@ import { LakeSuperiorComponent } from './pages/dashboard/lake-superior/lake-supe
 import { FavoritepageComponent} from './favoritepage/favoritepage.component'
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapKeyComponent } from './components/map-key/map-key.component';
+import { FavoriteBuoyComponent } from './components/favorite-buoy/favorite-buoy.component';
 
 
 
@@ -42,6 +43,7 @@ import { MapKeyComponent } from './components/map-key/map-key.component';
     LakeSuperiorComponent,
     FavoritepageComponent,
     MapKeyComponent,
+    FavoriteBuoyComponent,
   ],
   imports: [
     BrowserModule,
