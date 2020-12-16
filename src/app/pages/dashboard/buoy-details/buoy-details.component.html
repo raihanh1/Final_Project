@@ -52,7 +52,7 @@
   <div class="buoy-page-bottom">
 
     <!-- Conditions are Good For Section -->
-    <div class="recreation-container" *ngIf="currentBuoy.obsLongName">
+    <div class="recreation-container">
       <h3 class="container-title">These Conditions are Good For</h3>
 
       <div class="recreation-items-container">
@@ -78,9 +78,8 @@
 
 
     <!-- Video Section -->
-    <div class="video-container">
-      <h2 class="buoyName">{{ chosenBuoy }}</h2>
-      <iframe [src]="sanitize(chosenVideoLink)" frameborder="0" class="botd-video"></iframe>
+    <div class="video-container" *ngIf="webcamStream">
+      <iframe [src]="sanitize(webcamStream)" frameborder="0" class="botd-video"></iframe>
     </div>
 
     <!-- About this Buoy Section -->
@@ -94,8 +93,6 @@
     <div class="access-details">
       <p>SMS: Text 45175 toll free to <a href="tel:866-218-9973">866-218-9973</a> for latest observations.</p>
       <p>GLOS <a href="http://data.glos.us/metadata/srv/eng/main.home">Data Portal</a>: Access more data, models, and create alerts.</p>
-    </div>
-
   </div>
 
 
