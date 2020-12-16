@@ -28,10 +28,10 @@
           </p>
         </div>
 
-        <!-- <div [ngClass]="{'fav-button': true, 'is-filled': isFavorite(currentBuoy.id)}" (click)="toggleFavorite(currentBuoy.id)">
+        <div [ngClass]="{'fav-button': true, 'is-filled': isFavorite(currentBuoy.id)}" (click)="toggleFavorite(currentBuoy.id)">
           <img src="../assets/icon-favorite-empty.svg" class="icon-favorite" *ngIf="!isFavorite(currentBuoy.id)" />
           <img src="../assets/icon-favorite-filled.svg" class="icon-favorite" *ngIf="isFavorite(currentBuoy.id)" />
-        </div> -->
+        </div>
 
       </div>
 
@@ -47,33 +47,33 @@
     <div class="recreation-items-container information-container">
       <img class="recreation-icon" src="../assets/icon-swimming.svg" alt="Swimming">
       <h3 class="recreation-title">Swimming</h3>
-      <p *ngIf="!swimmingSafe()"> swimming is not safe</p>
-      <p *ngIf="swimmingSafe()"> swimming is safe</p>
+      <p>Awesome for swimming</p>
+      <p>Conditions are not good for swimming</p>
     </div>
     <div class="recreation-items-container information-container">
       <img class="recreation-icon" src="../assets/icon-kayaking.svg" alt="Kayaking"> 
       <h3 class="recreation-title">Kayaking</h3>
-      <p>Kayaking is not safe</p>
-      <p>Kayaking is safe</p>
+      <p>It's a great time to kayak!</p>
+      <p>It's not the best time to kayak</p>
     </div>
 
     <div class="recreation-items-container information-container">
       <img class="recreation-icon" src="../assets/icon-fishing.svg" alt="Fishing">
       <h3 class="recreation-title">Fishing</h3>
       <p>It's perfect for fishing</p>
-      <p>It's too cold for fishing</p>
+      <p>The conditions aren't ideal for fishing</p>
     </div>
 
     <div class="recreation-items-container information-container">
-      <img class="recreation-icon" src="../assets/icon-boating.svg" alt="Boating"> Boating
+      <img class="recreation-icon" src="../assets/icon-boating.svg" alt="Boating">
+      <h3>Boating</h3>
     </div>
   </div>
 
   <!-- Video Section -->
-    <div class="information-container">
+    <div class="information-container" *ngIf="webcamStream">
       <div class="videoModal"></div>
-        <h2 class="buoyName">{{ chosenBuoy }}</h2>
-        <iframe [src]="sanitize(chosenVideoLink)" frameborder="0" class="botd-video"></iframe>
+        <iframe [src]="sanitize(webcamStream)" frameborder="0" class="botd-video"></iframe>
     </div>
   <div class="buoy-info-container container" *ngIf="buoyInformation">
     <h2 class="info-title">Buoy Info</h2>

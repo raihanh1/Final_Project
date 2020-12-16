@@ -20,10 +20,9 @@ export class BuoyDetailsComponent implements OnInit {
   waveHeight;
   windSpeed;
   waterTemp;
-  chosenBuoy;
-  chosenVideoLink;
   buoysWithLinks = [];
   buoysWithLinkNames = [];
+  webcamStream;
 
   mapWidth = 144;
   mapHeight = 144;
@@ -46,25 +45,7 @@ export class BuoyDetailsComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) { }
 
-  ngOnInit(): void {
-    this.buoyService.getGlos().subscribe((response:any) => {
-      this.buoyInformation = response;
-      // Iterate over GLOS API
-      for (var i = 0; i < this.buoyInformation.length; i++){
-        // If buoy video isn't undefined, then push video and buoy name to arrays
-        if(this.buoyInformation[i].webcamLink[0] !== undefined){
-          this.buoysWithLinks.push(this.buoyInformation[i].webcamLink[0]);
-          this.buoysWithLinkNames.push(this.buoyInformation[i].longName);
-        }
-      }
-      this.buoysWithLinks.splice(1,1);
-      var numberChosen = Math.floor((Math.random() * 14));
-      var linkParse = this.buoysWithLinks[numberChosen].split('/');
-      this.chosenBuoy = this.buoysWithLinkNames[numberChosen];
-      this.chosenVideoLink = "https://www.limnotechdata.com/stations/albums/" + linkParse[4] + "/" + linkParse[4] + "720p.mp4";
-    })
-    
-    
+  ngOnInit(): void {    
     // Routing from the click event
     this.route.params.subscribe((params) => {
       this.id = params['id'];
@@ -76,6 +57,10 @@ export class BuoyDetailsComponent implements OnInit {
           return x.id === this.id;
         });
         console.log(this.currentBuoy, 'buoy information');
+        if(this.currentBuoy.webcamLink[0] !== undefined){
+          let webcam = this.currentBuoy.webcamLink[0].split('/');
+          this.webcamStream = "https://www.limnotechdata.com/stations/albums/" + webcam[4] + "/" + webcam[4] + "720p.mp4";
+        }
         
 
         this.weatherService
