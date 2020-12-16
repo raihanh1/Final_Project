@@ -28,10 +28,10 @@
           </p>
         </div>
 
-        <div [ngClass]="{'fav-button': true, 'is-filled': isFavorite(currentBuoy.id)}" (click)="toggleFavorite(currentBuoy.id)">
+        <!-- <div [ngClass]="{'fav-button': true, 'is-filled': isFavorite(currentBuoy.id)}" (click)="toggleFavorite(currentBuoy.id)">
           <img src="../assets/icon-favorite-empty.svg" class="icon-favorite" *ngIf="!isFavorite(currentBuoy.id)" />
           <img src="../assets/icon-favorite-filled.svg" class="icon-favorite" *ngIf="isFavorite(currentBuoy.id)" />
-        </div>
+        </div> -->
 
       </div>
 
@@ -41,28 +41,34 @@
       </div>
     </div>
   </div>
-  <div class="recreation-container container" *ngIf="buoyInformation">
+  <div class="recreation-container container" *ngIf="currentBuoy.obsLongName">
     <h3 class="container-title">These Conditions are Good For</h3>
 
     <div class="recreation-items-container information-container">
-      <img class="recreation-icon" src="../assets/icon-swimming.svg" alt="Swimming"> Swimming
+      <img class="recreation-icon" src="../assets/icon-swimming.svg" alt="Swimming">
+      <h3 class="recreation-title">Swimming</h3>
+      <p *ngIf="!swimmingSafe()"> swimming is not safe</p>
+      <p *ngIf="swimmingSafe()"> swimming is safe</p>
     </div>
     <div class="recreation-items-container information-container">
-      <img class="recreation-icon" src="../assets/icon-kayaking.svg" alt="Kayaking"> Kayaking
+      <img class="recreation-icon" src="../assets/icon-kayaking.svg" alt="Kayaking"> 
+      <h3 class="recreation-title">Kayaking</h3>
+      <p>Kayaking is not safe</p>
+      <p>Kayaking is safe</p>
     </div>
 
     <div class="recreation-items-container information-container">
-      <img class="recreation-icon" src="../assets/icon-fishing.svg" alt="Fishing"> Fishing
+      <img class="recreation-icon" src="../assets/icon-fishing.svg" alt="Fishing">
+      <h3 class="recreation-title">Fishing</h3>
+      <p>It's perfect for fishing</p>
+      <p>It's too cold for fishing</p>
     </div>
 
     <div class="recreation-items-container information-container">
-      <img src="../assets/icon-boating.svg" alt="Boating" class="icon-conditions">
-      Boating
+      <img class="recreation-icon" src="../assets/icon-boating.svg" alt="Boating"> Boating
     </div>
-
   </div>
 
-  <!-- Video Section -->
   <div class="video-container container">
     <div class="information-container">
       <p>looping video</p>

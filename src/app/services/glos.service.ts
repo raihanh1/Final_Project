@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ConsoleReporter } from 'jasmine';
+// import { ConsoleReporter } from 'jasmine';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GlosService {
+
   constructor(private http: HttpClient) {}
 
   getGlos() {
@@ -21,8 +22,6 @@ export class GlosService {
     const WTValue = valuesArray[WTIdx];
     const WHIdx = nameArray.indexOf('Wave Height')
     const WHValue = valuesArray[WHIdx];
-    console.log(WHValue, 'wave height');
-
   }
 
   getPosition(): Promise<any> {

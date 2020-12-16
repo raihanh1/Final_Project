@@ -15,10 +15,7 @@ export class BuoyDetailsComponent implements OnInit {
   lat;
   id;
   currentBuoy;
-  obsName;
-  waveHeight;
-  windSpeed;
-  waterTemp;
+  WTValue;
 
   mapWidth = 144;
   mapHeight = 144;
@@ -52,9 +49,6 @@ export class BuoyDetailsComponent implements OnInit {
           return x.id === this.id;
         });
         console.log(this.currentBuoy, 'buoy information');
-        if (this.currentBuoy.obsLongName) {
-          this.buoyService.filterValues(this.currentBuoy.obsLongName, this.currentBuoy.obsValues)
-        }
         
 
         this.weatherService
@@ -67,8 +61,6 @@ export class BuoyDetailsComponent implements OnInit {
     });
   
   }
-  
-  
   
   toggleFavorite = (buoyId) => {
     let favorites = JSON.parse(window.localStorage.getItem('favorites'));
@@ -93,4 +85,28 @@ export class BuoyDetailsComponent implements OnInit {
     }
   }
 
+  // filterValues = (longName) => {
+  //   if (this.currentBuoy.obsLongName !== undefined) {
+  //     const idx = this.currentBuoy.obsLongName.indexOf(longName);
+  //     let value = this.currentBuoy.obsValue[idx];
+  //     console.log(value, 'value');
+  //     return value;
+  //   }
+  // }
+    
+  
+  // filterValues(nameArray: any[], valuesArray: any[]) {
+  //   const WSIdx = nameArray.indexOf('Wind Speed');
+  //   const WSValue = valuesArray[WSIdx];
+  //   const WTIdx = nameArray.indexOf('Water Temp');
+  //   const WTValue = valuesArray[WTIdx];
+  //   const WHIdx = nameArray.indexOf('Wave Height')
+  //   const WHValue = valuesArray[WHIdx];
+  // }
+
+  swimmingSafe() {
+    if (this.WTValue > 70) {
+      return true
+    }
+  } 
 }
