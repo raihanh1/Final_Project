@@ -10,7 +10,31 @@
 >
 </app-map>
 
-<p>{{ windSpeed }}</p>
+<!-- Favorite Buoy Section -->
+<div class="fbl" *ngIf="favorites && favorites.length !== 0">
+    <div class="favoriteTitle">
+        <img class="icon-buoy" src="../../../../assets/icon-buoy.svg">
+        <span id="favorite-title">Favorites</span>  
+    </div>    
+    
+    <div class="favRectangle" *ngFor="let buoy of favorites; index as i;" (click)="routeToBuoy(buoy)">
+        <h3 class="buoyName">{{ buoy }}</h3>
+        <div class="buoyInformation-ctn">
+            <div class="weather-info-ctn">
+                <img class="icon-buoy-info" id="weather" src="http://openweathermap.org/img/wn/{{ weatherInfo[i].weather[0].icon}}@2x.png">
+                <h4 class="buoyName">{{ weatherInfo[i].main.feels_like }}° {{ weatherInfo[i].weather[0].main }}</h4>
+            </div>
+            <div class="temp-info-ctn">
+                <div class="temp-icon-ctn">
+                    <img class="icon-buoy-info" id="temp" src="../../../../assets/icon-temp.svg">
+                </div>
+                <h4 class="buoyName">{{ weatherInfo[i].main.temp }} °F</h4>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
 
 
 <!-- Buoy of the Day Video -->
