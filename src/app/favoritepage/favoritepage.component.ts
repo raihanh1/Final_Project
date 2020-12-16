@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GlosService } from '../services/glos.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-favoritepage',
@@ -23,11 +24,12 @@ export class FavoritepageComponent implements OnInit {
     if (unit=="N") { dist = dist * 0.8684 }
     return dist
   }
-  constructor(private glosService: GlosService) {}
+  constructor(private glosService: GlosService, private router: Router) {}
   buoys;
   calcDistances = {};
   nearestBuoys;
   favoriteBuoys = [];
+  currentBuoy;
 
   
   ngOnInit(): void {
@@ -62,6 +64,29 @@ export class FavoritepageComponent implements OnInit {
 
   removeFromFavorites(index){
     this.favoriteBuoys.splice(index, 1);
+  }
+
+  toggleFavorite = (buoyId) => {
+    let favorites = JSON.parse(window.localStorage.getItem('favorites'));
+    if (!favorites) {
+      favorites = [];
+    }
+    if (favorites.includes(buoyId)) {
+      // remove from favorites
+      const indexOfBuoyToRemove = favorites.findIndex((favorite) => favorite === buoyId);
+      favorites.splice(indexOfBuoyToRemove, 1);
+      window.localStorage.setItem('favorites', JSON.stringify(favorites));
+    } else {
+      favorites.push(buoyId);
+      window.localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+  }
+
+  isFavorite = (buoyId) => {
+    let favorites = JSON.parse(window.localStorage.getItem('favorites'));
+    if(favorites) {
+      return favorites.includes(buoyId);
+    }  
   }
 
 }

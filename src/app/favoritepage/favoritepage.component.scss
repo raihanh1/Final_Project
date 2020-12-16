@@ -1,6 +1,7 @@
 ::ng-deep .map-container {
   height: 344px !important;
   left: 122px !important;
+  width: 40% !important;
   display: inline-block;
 }
 
@@ -24,7 +25,7 @@
 }
 
 .favbuoy {
-  margin-top: 64px;
+  margin-top: 128px;
 }
 
 .rectangle {
@@ -102,13 +103,26 @@
 }
 
 .favButton {
-  padding: 4px 20px;
+  padding: 10px 26px;
   border-radius: 16px;
   border: solid 1.5px #3b5795;
   background-color: var(--White);
   float: right;
   vertical-align: -webkit-baseline-middle;
   outline: none;
+  cursor: pointer;
+  background-image: url("/assets/icon-favorite-empty.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.favButton:active {
+  background-color: var(--dark-blue);
+  background-image: url("/assets/icon-favorite-filled.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .removeButton {
@@ -128,10 +142,25 @@
 #star {
   width: 16px;
   height: 16px;
+}
+
+.finishbutton {
+  width: 100%;
+  color: white;
+  margin-top: 20px;
+  padding: 9px 125px 8px 126px;
+  border: none;
+  border-radius: 18px;
+  background-image: linear-gradient(to right, #3b5795, #3997b5);
+  outline: none;
   cursor: pointer;
 }
 
-@media only screen and (max-width: 696px) {
+#favpage {
+  display: flow-root;
+}
+
+@media only screen and (max-width: 807px) {
   ::ng-deep .map-container {
     left: 0 !important;
     width: 100% !important;
@@ -168,4 +197,5 @@
     margin-left: 16px;
   }
 }
+
 

@@ -15,15 +15,6 @@ export class GlosService {
     );
   }
 
-  filterValues(nameArray: any[], valuesArray: any[]) {
-    const WSIdx = nameArray.indexOf('Wind Speed');
-    const WSValue = valuesArray[WSIdx];
-    const WTIdx = nameArray.indexOf('Water Temp');
-    const WTValue = valuesArray[WTIdx];
-    const WHIdx = nameArray.indexOf('Wave Height')
-    const WHValue = valuesArray[WHIdx];
-  }
-
   getPosition(): Promise<any> {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
