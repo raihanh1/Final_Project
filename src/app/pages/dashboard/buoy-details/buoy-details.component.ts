@@ -27,10 +27,11 @@ export class BuoyDetailsComponent implements OnInit {
   mapWidth = 144;
   mapHeight = 144;
   mapOptions: google.maps.MapOptions = {
-    center: { lat: 44.75, lng: -82 },
-    zoom: 10,
-    maxZoom: 10,
-    minZoom: 10,
+    // center: { lat: 44.75, lng: -82 },
+    // center: { lat: this.currentBuoy.lat, lng: this.currentBuoy.lon},
+    zoom: 8,
+    maxZoom: 8,
+    minZoom: 8,
     mapTypeId: 'hybrid',
     disableDefaultUI: true,
     disableDoubleClickZoom: true,
@@ -44,29 +45,6 @@ export class BuoyDetailsComponent implements OnInit {
     private router: Router,
     private sanitizer: DomSanitizer
   ) { }
-
-  // ngOnInit(): void {
-  //   this.buoyService.getGlos().subscribe((response:any) => {
-  //     this.buoyInformation = response;
-
-  //     // Iterate over GLOS API
-  //     for (var i = 0; i < this.buoyInformation.length; i++){
-  //       // If buoy video isn't undefined, then push video and buoy name to arrays
-  //       if(this.buoyInformation[i].webcamLink[0] !== undefined){
-  //         this.buoysWithLinks.push(this.buoyInformation[i].webcamLink[0]);
-  //         this.buoysWithLinkNames.push(this.buoyInformation[i].longName);
-  //       }
-  //     }
-  //     this.buoysWithLinks.splice(1,1);
-  //     var numberChosen = Math.floor((Math.random() * 14));
-  //     var linkParse = this.buoysWithLinks[numberChosen].split('/');
-  //     this.chosenBuoy = this.buoysWithLinkNames[numberChosen];
-  //     this.chosenVideoLink = "https://www.limnotechdata.com/stations/albums/" + linkParse[4] + "/" + linkParse[4] + "720p.mp4";
-
-  //   })
-
-
-
     
   ngOnInit(): void {    
     // Routing from the click event
@@ -77,9 +55,11 @@ export class BuoyDetailsComponent implements OnInit {
       // Getting the GLOS API and using the long and lat to call the weather API
       this.buoyService.getGlos().subscribe((response: any) => {
         this.buoyInformation = response;
+        // Set currentBuoy to the Buoy ID
         this.currentBuoy = this.buoyInformation.find((x) => {
           return x.id === this.id;
         });
+        this.mapOptions.center = { lat: this.currentBuoy.lat, lng: this.currentBuoy.lon};
         console.log(this.currentBuoy, 'buoy information');
         if(this.currentBuoy.webcamLink[0] !== undefined){
           let webcam = this.currentBuoy.webcamLink[0].split('/');

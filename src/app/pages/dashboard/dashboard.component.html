@@ -1,7 +1,11 @@
 <nav-top></nav-top>
 
-<!-- <nav [ngClass]="{'is-open': menuIsOpen, 'nav-side-ctn': true}"> -->
-<nav class="nav-side-ctn">
+<div [ngClass]="{'is-hidden': menuIsOpen, 'menu-btn-container': true}">
+    <img src="../assets/icon-menu.svg" alt="Menu" (click)="toggleMenu()" [ngClass]="{'is-hidden': menuIsOpen, 'menu-btn': true}">
+</div>
+
+<nav [ngClass]="{'is-open': menuIsOpen, 'nav-side-ctn': true}">
+<!-- <nav class="nav-side-ctn"> -->
     <div class="nav-items-ctn">
 
         <div class="nav-top-section">
@@ -47,9 +51,9 @@
         <div class="line-seperator"></div>
 
         <div class="nav-links-individual-buoys">
-            <a routerLink="/buoyportal/45147" class="nav-link-buoy">Lake St. Claire</a>
-            <a routerLink="/buoyportal/45166" class="nav-link-buoy">Lake Champlain</a>
-            <a routerLink="/buoyportal/UMBIO" class="nav-link-buoy">UM-BIO</a>
+            <a class="nav-link-buoy" (click)="routeToBuoy('45147')">Lake St. Claire</a>
+            <a class="nav-link-buoy" (click)="routeToBuoy('45166')">Lake Champlain</a>
+            <a class="nav-link-buoy" (click)="routeToBuoy('UMBIO')">UM-BIO</a>
         </div>
 
     </div>

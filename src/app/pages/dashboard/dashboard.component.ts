@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuToggleService } from '../../services/menu-toggle.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,10 +8,9 @@ import { MenuToggleService } from '../../services/menu-toggle.service';
 })
 export class DashboardComponent implements OnInit {
   isLoggedIn: string = window.localStorage.getItem('greatLakes_isLoggedIn');
+  menuIsOpen = false;
 
-  constructor(private router: Router, private menuToggle: MenuToggleService) { }
-
-  menuIsOpen = this.menuToggle.getMenuIsOpen();
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -26,8 +24,12 @@ export class DashboardComponent implements OnInit {
   }
 
   toggleMenu = () => {
-    this.menuToggle.toggleMenu();
+    this.menuIsOpen = !this.menuIsOpen;
     console.log(this.menuIsOpen);
+  }
+
+  routeToBuoy(buoy){
+    window.location.href = `/buoyportal/${buoy}`;
   }
 
   // closeMenu = () => {
