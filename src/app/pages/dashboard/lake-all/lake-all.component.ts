@@ -19,6 +19,7 @@ export class LakeAllComponent implements OnInit {
   buoysWithLinkNames = [];
   chosenBuoy;
   chosenVideoLink;
+  windSpeed;
 
   lakeBounds: google.maps.MapRestriction = {
     latLngBounds: {

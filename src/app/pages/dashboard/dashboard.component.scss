@@ -4,9 +4,13 @@
     padding-top: 40px;
     position: fixed;
     z-index: 5;
-    // display: none;
+    display: none;
     background-image:linear-gradient(to bottom, var(--dark-blue), var(--turquoise));
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.is-open {
+    display: block;
 }
 
 .nav-top-section {
@@ -121,12 +125,13 @@
 }
 
 .waves-img {
+    position: fixed;
+    bottom: 0;
     width: 100%;
 }
 
 .dashboard-ctn {
     position: absolute;
-    left: 320px;
     top: 72px;
 }
 
@@ -187,12 +192,26 @@
     
         cursor: pointer;
     }
+
+    .dashboard-ctn {
+        position: absolute;
+        left: 272px;
+        top: 72px;
+    }
+
+    .waves-img {
+        position: fixed;
+        bottom: 0;
+        width: 272px;
+    }
+
 }
 
 
 @media screen and (min-width: 800px) {
     .nav-side-ctn {
         width: 320px;
+        display: block;
     }
 
     .nav-link {
@@ -201,6 +220,17 @@
 
     .nav-links-individual-buoys {
         margin-left: 152px;
+    }
 
+    .dashboard-ctn {
+        position: absolute;
+        left: 320px;
+        top: 72px;
+    }
+
+    .waves-img {
+        position: fixed;
+        bottom: 0;
+        width: 320px;
     }
 }

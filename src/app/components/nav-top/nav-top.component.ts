@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuToggleService } from '../../services/menu-toggle.service';
 
 @Component({
   selector: 'nav-top',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class NavTopComponent implements OnInit {
   isLoggedIn: string = window.localStorage.getItem('greatLakes_isLoggedIn');
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private menuToggle: MenuToggleService) { }
 
   ngOnInit(): void {
 
@@ -27,8 +28,13 @@ export class NavTopComponent implements OnInit {
         window.location.href = '/buoyportal/all-lakes';
   }
 
+  toggleMenu = () => {
+    this.menuToggle.toggleMenu();
+  }
+
   // openMenu = () => {
   //   const sideNav = document.querySelector('.nav-side-ctn');
   //   sideNav.style.display = 'block';
   // }
+
 }

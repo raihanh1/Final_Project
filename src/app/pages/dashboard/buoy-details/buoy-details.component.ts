@@ -49,6 +49,7 @@ export class BuoyDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.buoyService.getGlos().subscribe((response:any) => {
       this.buoyInformation = response;
+
       // Iterate over GLOS API
       for (var i = 0; i < this.buoyInformation.length; i++){
         // If buoy video isn't undefined, then push video and buoy name to arrays
@@ -62,12 +63,16 @@ export class BuoyDetailsComponent implements OnInit {
       var linkParse = this.buoysWithLinks[numberChosen].split('/');
       this.chosenBuoy = this.buoysWithLinkNames[numberChosen];
       this.chosenVideoLink = "https://www.limnotechdata.com/stations/albums/" + linkParse[4] + "/" + linkParse[4] + "720p.mp4";
+
     })
-    
+
+
+
     
     // Routing from the click event
     this.route.params.subscribe((params) => {
       this.id = params['id'];
+
 
       // Getting the GLOS API and using the long and lat to call the weather API
       this.buoyService.getGlos().subscribe((response: any) => {
@@ -86,8 +91,13 @@ export class BuoyDetailsComponent implements OnInit {
           });
       });
     });
+
+
+    
   
   }
+
+
   
   sanitize(url){
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
@@ -120,28 +130,4 @@ export class BuoyDetailsComponent implements OnInit {
     }
   }
 
-  // filterValues = (longName) => {
-  //   if (this.currentBuoy.obsLongName !== undefined) {
-  //     const idx = this.currentBuoy.obsLongName.indexOf(longName);
-  //     let value = this.currentBuoy.obsValue[idx];
-  //     console.log(value, 'value');
-  //     return value;
-  //   }
-  // }
-    
-  
-  // filterValues(nameArray: any[], valuesArray: any[]) {
-  //   const WSIdx = nameArray.indexOf('Wind Speed');
-  //   const WSValue = valuesArray[WSIdx];
-  //   const WTIdx = nameArray.indexOf('Water Temp');
-  //   const WTValue = valuesArray[WTIdx];
-  //   const WHIdx = nameArray.indexOf('Wave Height')
-  //   const WHValue = valuesArray[WHIdx];
-  // }
-
-  swimmingSafe() {
-    if (this.WTValue > 70) {
-      return true
-    }
-  } 
 }
