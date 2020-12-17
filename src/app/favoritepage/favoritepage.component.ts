@@ -8,7 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./favoritepage.component.scss']
 })
 export class FavoritepageComponent implements OnInit {
-    distance(lat1, lon1, lat2, lon2, unit) {
+  buoys;
+  calcDistances = {};
+  nearestBuoys;
+  favoriteBuoys = [];
+  currentBuoy;
+
+  distance(lat1, lon1, lat2, lon2, unit) {
     let radlat1 = Math.PI * lat1/180
     let radlat2 = Math.PI * lat2/180
     let theta = lon1-lon2
@@ -24,15 +30,35 @@ export class FavoritepageComponent implements OnInit {
     if (unit=="N") { dist = dist * 0.8684 }
     return dist
   }
+
+  lakeBounds: google.maps.MapRestriction = {
+    latLngBounds: {
+      north: 51,
+      south: 40,
+      west: -100,
+      east: -70,
+    }
+  }
+
+  mapWidth = 600;
+  mapHeight = 320;
+  mapOptions: google.maps.MapOptions = {
+    center: { lat: 45, lng: -83.50 },
+    zoom: 6,
+    maxZoom: 13,
+    minZoom: 6,
+    restriction: this.lakeBounds,
+    mapTypeId: 'hybrid',
+    disableDefaultUI: true,
+  };
+
+  
   constructor(private glosService: GlosService, private router: Router) {}
-  buoys;
-  calcDistances = {};
-  nearestBuoys;
-  favoriteBuoys = [];
-  currentBuoy;
 
   
   ngOnInit(): void {
+    this.favoriteBuoys = JSON.parse(window.localStorage.getItem('favorites'));
+
     this.glosService.getGlos().subscribe((result: any) => {
       this.buoys = result;  
 
@@ -59,7 +85,21 @@ export class FavoritepageComponent implements OnInit {
   }
 
   addToFavorites(buoy){
+    let favorites = JSON.parse(window.localStorage.getItem('favorites'));
+    if (!favorites) {
+      favorites = [];
+    }
+    if (favorites.includes(buoy)) {
+      // remove from favorites
+      const indexOfBuoyToRemove = favorites.findIndex((favorite) => favorite === buoy);
+      favorites.splice(indexOfBuoyToRemove, 1);
+      window.localStorage.setItem('favorites', JSON.stringify(favorites));
+    } else {
+      favorites.push(buoy);
+      window.localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
     this.favoriteBuoys.push(buoy);
+    console.log(buoy);
   }
 
   removeFromFavorites(index){
@@ -88,5 +128,10 @@ export class FavoritepageComponent implements OnInit {
       return favorites.includes(buoyId);
     }  
   }
+
+  routeToHome(){
+    this.router.navigateByUrl(`/buoyportal/all-lakes`);
+  }
+
 
 }

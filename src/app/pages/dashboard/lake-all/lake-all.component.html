@@ -11,7 +11,7 @@
 </app-map>
 
 <!-- Favorite Buoy Section -->
-<div class="fbl" *ngIf="favorites && favorites.length !== 0">
+<div class="fbl" *ngIf="isLoggedIn && favorites && favorites.length !== 0">
     <div class="favoriteTitle">
         <img class="icon-buoy" src="../../../../assets/icon-buoy.svg">
         <span id="favorite-title">Favorites</span>  

@@ -60,7 +60,7 @@ export class BuoyDetailsComponent implements OnInit {
           return x.id === this.id;
         });
         this.mapOptions.center = { lat: this.currentBuoy.lat, lng: this.currentBuoy.lon};
-        console.log(this.currentBuoy, 'buoy information');
+        // console.log(this.currentBuoy, 'buoy information');
         if(this.currentBuoy.webcamLink[0] !== undefined){
           let webcam = this.currentBuoy.webcamLink[0].split('/');
           this.webcamStream = "https://www.limnotechdata.com/stations/albums/" + webcam[4] + "/" + webcam[4] + "720p.mp4";
@@ -115,3 +115,4 @@ export class BuoyDetailsComponent implements OnInit {
   }
 
 }
+ 

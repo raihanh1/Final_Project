@@ -25,6 +25,7 @@ export class LakeAllComponent implements OnInit {
   favoritesLocation = [];
   weatherInfo = [];
   weatherDegress = [];
+  isLoggedIn;
 
 
   lakeBounds: google.maps.MapRestriction = {
@@ -60,6 +61,7 @@ export class LakeAllComponent implements OnInit {
   ngOnInit(): void {
     // Get localStorage
     this.favorites = JSON.parse(localStorage.getItem('favorites'));
+    this.isLoggedIn = JSON.parse(localStorage.getItem('greatLakes_isLoggedIn'));
 
     // Get GLOS API and set to buoyInformation
     this.buoyService.getGlos().subscribe((response:any) => {
